@@ -54,38 +54,16 @@ export default function TestDrivePage() {
         <section className="max-w-7xl mx-auto px-6 py-20 text-center">
           <h2 className="text-3xl lg:text-4xl font-black text-slate-900 mb-4">Select Your Vehicle</h2>
           <p className="text-gray-500 max-w-2xl mx-auto mb-12">
-            From performance SUVs to electric grand tourers, choose the masterpiece you wish to command.
+            Experience the future of smart urban mobility. Book your test drive for the Jinpeng Lingbox-Z today.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-            {/* Vehicle 1 */}
-            <div className="group cursor-pointer">
-              <div className="relative h-56 rounded-2xl overflow-hidden border-2 border-transparent bg-white group-hover:border-gray-200 transition-all mb-4">
-                <Image 
-                  src="https://images.unsplash.com/photo-1525609002783-cfd08ef2bbac?q=80&w=2070&auto=format&fit=crop" 
-                  alt="Suzuki G-Series" 
-                  fill 
-                  className="object-cover"
-                />
-                <div className="absolute top-4 right-4 bg-white text-slate-900 text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full shadow-sm">Hybrid</div>
-              </div>
-              <div className="flex items-center justify-between px-1">
-                <div>
-                  <h3 className="text-lg font-bold text-slate-900">Suzuki G-Series</h3>
-                  <p className="text-sm text-gray-500">Starting at $89,000</p>
-                </div>
-                <div className="w-6 h-6 rounded-full border-2 border-gray-200 flex items-center justify-center group-hover:border-[#ea2e33]/50 transition-colors">
-                  <CheckCircle2 className="w-4 h-4 text-transparent" />
-                </div>
-              </div>
-            </div>
-
-            {/* Vehicle 2 (Selected) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left justify-center">
+            {/* Vehicle 1 (Selected) */}
             <div className="group cursor-pointer">
               <div className="relative h-56 rounded-2xl overflow-hidden border-2 border-[#ea2e33] transition-all mb-4 shadow-lg shadow-[#ea2e33]/10">
                 <Image 
-                  src="https://images.unsplash.com/photo-1617788138017-80ad42243c5d?q=80&w=2069&auto=format&fit=crop" 
-                  alt="Elite E-Tron Prestige" 
+                  src="/Lingbox-Z/lingbox1.webp" 
+                  alt="Jinpeng Lingbox-Z" 
                   fill 
                   className="object-cover"
                 />
@@ -93,33 +71,11 @@ export default function TestDrivePage() {
               </div>
               <div className="flex items-center justify-between px-1">
                 <div>
-                  <h3 className="text-lg font-bold text-slate-900">Elite E-Tron Prestige</h3>
-                  <p className="text-sm text-gray-500">Starting at $112,000</p>
+                  <h3 className="text-lg font-bold text-slate-900">Jinpeng Lingbox-Z</h3>
+                  <p className="text-sm text-gray-500">Starting at NRP 20,00,000</p>
                 </div>
                 <div className="w-6 h-6 rounded-full bg-[#ea2e33] flex items-center justify-center">
                   <CheckCircle2 className="w-4 h-4 text-white" />
-                </div>
-              </div>
-            </div>
-
-            {/* Vehicle 3 */}
-            <div className="group cursor-pointer">
-              <div className="relative h-56 rounded-2xl overflow-hidden border-2 border-transparent bg-white group-hover:border-gray-200 transition-all mb-4">
-                <Image 
-                  src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop" 
-                  alt="Elite X-Dynamic" 
-                  fill 
-                  className="object-cover"
-                />
-                <div className="absolute top-4 right-4 bg-white text-slate-900 text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full shadow-sm">V8 Engine</div>
-              </div>
-              <div className="flex items-center justify-between px-1">
-                <div>
-                  <h3 className="text-lg font-bold text-slate-900">Elite X-Dynamic</h3>
-                  <p className="text-sm text-gray-500">Starting at $95,000</p>
-                </div>
-                <div className="w-6 h-6 rounded-full border-2 border-gray-200 flex items-center justify-center group-hover:border-[#ea2e33]/50 transition-colors">
-                  <CheckCircle2 className="w-4 h-4 text-transparent" />
                 </div>
               </div>
             </div>
@@ -188,17 +144,12 @@ export default function TestDrivePage() {
                 <div className="flex flex-col md:flex-row gap-6">
                   <div className="flex-1 space-y-4">
                     <button className="w-full text-left p-6 rounded-2xl border-2 border-[#ea2e33] bg-red-50/30 transition-all text-slate-900">
-                      <h4 className="font-bold mb-1">Elite Motors Flagship</h4>
-                      <p className="text-sm text-gray-500 mb-3">882 Luxury Way, Innovation District<br/>Beverly Hills, CA 90210</p>
+                      <h4 className="font-bold mb-1">Niesh Automobile</h4>
+                      <p className="text-sm text-gray-500 mb-3">Baneshwor, Kathmandu<br/>Nepal</p>
                       <div className="flex items-center gap-1.5">
                         <div className="w-2 h-2 rounded-full bg-red-500" />
-                        <span className="text-[10px] font-bold text-red-500 uppercase tracking-widest">Open until 8:00 PM</span>
+                        <span className="text-[10px] font-bold text-red-500 uppercase tracking-widest">Open until 6:00 PM</span>
                       </div>
-                    </button>
-                    
-                    <button className="w-full text-left p-6 rounded-2xl border border-gray-200 hover:border-gray-300 transition-all text-slate-900">
-                      <h4 className="font-bold mb-1">West Coast Experience Center</h4>
-                      <p className="text-sm text-gray-500">Santa Monica, CA</p>
                     </button>
                   </div>
                   

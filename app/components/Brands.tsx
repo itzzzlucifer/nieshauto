@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Brands() {
   const brands = [
-    { name: "Lingbox", logo: "LOGO" },
+    { name: "Jinpeng", logo: "LOGO" },
   ];
 
   return (
@@ -19,7 +19,7 @@ export default function Brands() {
               className="w-40 sm:w-48 bg-white border border-gray-100 hover:border-gray-200 transition-colors rounded-2xl p-8 flex flex-col items-center justify-center gap-4 shadow-sm hover:shadow-md cursor-pointer"
             >
               <div className="w-12 h-12 bg-slate-900 rounded-lg flex items-center justify-center text-white font-bold text-xs ring-4 ring-gray-50">
-                {brand.logo === "LOGO" ? "LI" : brand.name.substring(0, 2).toUpperCase()}
+                {brand.logo === "LOGO" ? "JI" : brand.name.substring(0, 2).toUpperCase()}
               </div>
               <span className="font-semibold text-slate-800 text-sm">{brand.name}</span>
             </div>

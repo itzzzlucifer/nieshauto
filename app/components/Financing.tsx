@@ -15,7 +15,7 @@ export default function Financing() {
             for Your Dream Car
           </h2>
           <p className="text-gray-400 text-lg mb-10 max-w-lg leading-relaxed">
-            Own your next Lingbox with competitive rates starting from 2.9% APR. Quick approval and tailored monthly plans.
+            Own your next Jinpeng with competitive rates starting from 2.9% APR. Quick approval and tailored monthly plans.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">

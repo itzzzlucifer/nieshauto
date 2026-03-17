@@ -16,7 +16,7 @@ export default function Hero() {
           </h1>
           
           <p className="text-gray-500 text-lg md:text-xl max-w-md leading-relaxed">
-            Discover the finest selection of Lingbox vehicles tailored to your lifestyle and future.
+            Discover the finest selection of Jinpeng vehicles tailored to your lifestyle and future.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">

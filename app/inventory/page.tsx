@@ -16,7 +16,7 @@ export default function InventoryPage() {
           <ChevronRight className="w-4 h-4" />
           <Link href="#" className="hover:text-[#ea2e33] transition-colors">Electric Hatchbacks</Link>
           <ChevronRight className="w-4 h-4" />
-          <span className="text-slate-900 font-bold">LINGBOX-Z 325KM</span>
+          <span className="text-slate-900 font-bold">JINPENG LINGBOX-Z 410km</span>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
@@ -26,14 +26,14 @@ export default function InventoryPage() {
             <div className="relative h-[400px] sm:h-[500px] w-full rounded-3xl overflow-hidden bg-slate-900 shadow-lg">
               <Image 
                 src="/Lingbox-Z/lingbox1.webp" 
-                alt="LINGBOX-Z 325KM" 
+                alt="JINPENG LINGBOX-Z 410km" 
                 fill 
                 className="object-cover"
                 priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute bottom-8 left-8">
-                <h1 className="text-4xl sm:text-5xl font-black text-white mb-2 tracking-tight">LINGBOX-Z 325KM</h1>
+                <h1 className="text-4xl sm:text-5xl font-black text-white mb-2 tracking-tight">JINPENG LINGBOX-Z 410km</h1>
                 <p className="text-gray-300 font-medium tracking-wide">The Smart Urban Companion</p>
               </div>
             </div>
@@ -89,7 +89,7 @@ export default function InventoryPage() {
                 </div>
                 <div className="flex items-center gap-3">
                   <Sparkles className="w-5 h-5 text-[#ea2e33]" />
-                  <span className="text-sm font-semibold text-slate-700">10.4 kWh/100km Energy Efficiency</span>
+                  <span className="text-sm font-semibold text-slate-700">10.5 kWh/100km Energy Efficiency</span>
                 </div>
               </div>
 
@@ -123,7 +123,7 @@ export default function InventoryPage() {
             <div className="bg-white p-8 rounded-3xl border border-gray-100 flex flex-col items-center justify-center text-center shadow-sm">
               <Navigation className="w-8 h-8 text-[#ea2e33] mb-4" />
               <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">CLTC Range</span>
-              <span className="text-3xl font-black text-[#101c40]">325 km</span>
+              <span className="text-3xl font-black text-[#101c40]">410 km</span>
             </div>
             <div className="bg-white p-8 rounded-3xl border border-gray-100 flex flex-col items-center justify-center text-center shadow-sm">
               <Timer className="w-8 h-8 text-[#ea2e33] mb-4" />
@@ -138,7 +138,7 @@ export default function InventoryPage() {
             <div className="bg-white p-8 rounded-3xl border border-gray-100 flex flex-col items-center justify-center text-center shadow-sm">
               <Battery className="w-8 h-8 text-[#ea2e33] mb-4" />
               <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Battery Capacity</span>
-              <span className="text-3xl font-black text-[#101c40]">31.29 kWh</span>
+              <span className="text-3xl font-black text-[#101c40]">40.6 kWh</span>
             </div>
           </div>
         </section>

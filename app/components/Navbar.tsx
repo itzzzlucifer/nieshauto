@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Search } from "lucide-react";
 
@@ -6,8 +7,14 @@ export default function Navbar() {
     <nav className="fixed top-0 w-full z-50 bg-white border-b border-gray-100 px-6 py-4 flex items-center justify-between">
       {/* Logo */}
       <Link href="/" className="flex items-center gap-2 group">
-        <div className="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center text-white font-bold text-xs ring-2 ring-gray-100 group-hover:scale-105 transition-transform">
-          NA
+        <div className="relative w-12 h-12 overflow-hidden rounded-full ring-2 ring-gray-100 group-hover:scale-105 transition-transform">
+          <Image 
+            src="/logo.jpeg" 
+            alt="Niesh Automobile Logo" 
+            fill 
+            className="object-cover"
+            priority
+          />
         </div>
         <div className="flex flex-col">
           <span className="text-xl font-black italic tracking-tighter text-[#ea2e33] leading-none">NIESH</span>

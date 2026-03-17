@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Gauge, Settings, Fuel, Zap, BatteryCharging, BatteryFull, Baseline, Navigation } from "lucide-react";
 
 export type CarProp = {
@@ -76,9 +77,11 @@ export default function CarCard({ car }: { car: CarProp }) {
         </div>
 
         {/* Action */}
-        <button className="w-full bg-slate-50 hover:bg-slate-100 text-slate-900 font-semibold py-3.5 rounded-xl transition-colors mt-auto border border-gray-100">
-          View Details
-        </button>
+        <Link href="/inventory" className="block w-full">
+          <button className="w-full bg-slate-50 hover:bg-slate-100 text-slate-900 font-semibold py-3.5 rounded-xl transition-colors mt-auto border border-gray-100">
+            View Details
+          </button>
+        </Link>
       </div>
     </div>
   );
