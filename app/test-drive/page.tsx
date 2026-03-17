@@ -12,7 +12,7 @@ export default function TestDrivePage() {
         {/* Hero Section */}
         <section className="relative h-[600px] w-full overflow-hidden">
           <Image 
-            src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2070&auto=format&fit=crop" 
+            src="/car_interior.png" 
             alt="Luxury Car Interior" 
             fill 
             className="object-cover"
@@ -155,7 +155,7 @@ export default function TestDrivePage() {
                   
                   <div className="w-full md:w-1/2 h-48 md:h-auto relative rounded-2xl overflow-hidden bg-gray-100">
                     <Image 
-                      src="https://images.unsplash.com/photo-1569336415962-a4bd9f6dfc0f?q=80&w=2074&auto=format&fit=crop" 
+                      src="/map_location.png" 
                       alt="Map location" 
                       fill 
                       className="object-cover opacity-60"
@@ -214,7 +214,7 @@ export default function TestDrivePage() {
 
                 <div className="flex items-center gap-3 pt-6 border-t border-gray-100">
                   <div className="w-10 h-10 rounded-full bg-gray-200 overflow-hidden relative flex-shrink-0">
-                     <Image src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop" alt="Mark S." fill className="object-cover" />
+                     <span className="text-gray-500 font-bold text-sm">MS</span>
                   </div>
                   <div>
                     <p className="text-xs text-slate-900 italic font-medium mb-0.5">"The most refined booking experience I've ever had."</p>

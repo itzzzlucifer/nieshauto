@@ -41,16 +41,16 @@ export default function InventoryPage() {
             {/* Thumbnail Gallery */}
             <div className="grid grid-cols-4 gap-4">
               <div className="relative h-24 sm:h-32 rounded-xl overflow-hidden cursor-pointer">
-                <Image src="https://images.unsplash.com/photo-1619864228913-c15c82db7d69?q=80&w=2074&auto=format&fit=crop" alt="Gallery 1" fill className="object-cover hover:scale-105 transition-transform" />
+                <Image src="/Lingbox-Z/lingbox1.webp" alt="Gallery 1" fill className="object-cover hover:scale-105 transition-transform" />
               </div>
               <div className="relative h-24 sm:h-32 rounded-xl overflow-hidden cursor-pointer">
-                 <Image src="https://images.unsplash.com/photo-1678170881765-a8c6c8e31003?q=80&w=2070&auto=format&fit=crop" alt="Gallery 2" fill className="object-cover hover:scale-105 transition-transform" />
+                 <Image src="/car_interior.png" alt="Gallery 2" fill className="object-cover hover:scale-105 transition-transform" />
               </div>
               <div className="relative h-24 sm:h-32 rounded-xl overflow-hidden cursor-pointer">
-                <Image src="https://images.unsplash.com/photo-1542362567-b052ea1901aa?q=80&w=2070&auto=format&fit=crop" alt="Gallery 3" fill className="object-cover hover:scale-105 transition-transform" />
+                <Image src="/Lingbox-Z/lingbox1.webp" alt="Gallery 3" fill className="object-cover hover:scale-105 transition-transform" />
               </div>
               <div className="relative h-24 sm:h-32 rounded-xl overflow-hidden cursor-pointer group">
-                <Image src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?q=80&w=2069&auto=format&fit=crop" alt="Gallery 4" fill className="object-cover group-hover:scale-105 transition-transform" />
+                <Image src="/car_interior.png" alt="Gallery 4" fill className="object-cover group-hover:scale-105 transition-transform" />
                 <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
                   <span className="text-white font-bold text-sm">+12 More</span>
                 </div>
@@ -98,7 +98,7 @@ export default function InventoryPage() {
                   <Calendar className="w-5 h-5" />
                   Book a Test Drive
                 </Link>
-                <a href="/BOX-Z.pdf" download className="w-full bg-white hover:bg-gray-50 text-[#ea2e33] font-bold py-4 rounded-xl border-2 border-[#ea2e33] transition-colors flex items-center justify-center">
+                <a href="/Specification.pdf" download className="w-full bg-white hover:bg-gray-50 text-[#ea2e33] font-bold py-4 rounded-xl border-2 border-[#ea2e33] transition-colors flex items-center justify-center">
                   Download Brochure
                 </a>
               </div>
@@ -189,7 +189,7 @@ export default function InventoryPage() {
 
             <div className="h-[400px] lg:h-[500px] rounded-3xl overflow-hidden relative shadow-2xl">
               <Image 
-                src="https://images.unsplash.com/photo-1542362567-b052ea1901aa?q=80&w=2070&auto=format&fit=crop" 
+                src="/car_interior.png"
                 alt="Interior Dashboard" 
                 fill 
                 className="object-cover"
