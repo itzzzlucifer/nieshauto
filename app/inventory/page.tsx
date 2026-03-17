@@ -1,10 +1,21 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight, Share2, Zap, ShieldCheck, Timer, Calendar, BarChart3, Gauge, Battery, Lock, Sparkles, Navigation } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
+const GALLERY_IMAGES = [
+  "/Lingbox-Z/lingbox1.webp",
+  "/car_interior.png",
+  "/Lingbox-Z/lingbox1.webp",
+  "/car_interior.png"
+];
+
 export default function InventoryPage() {
+  const [activeIndex, setActiveIndex] = useState(0);
   return (
     <div className="min-h-screen flex flex-col pt-[88px] bg-[#f8f9fa]">
       <Navbar />
@@ -25,7 +36,7 @@ export default function InventoryPage() {
             {/* Main Featured Image */}
             <div className="relative h-[400px] sm:h-[500px] w-full rounded-3xl overflow-hidden bg-slate-900 shadow-lg">
               <Image 
-                src="/Lingbox-Z/lingbox1.webp" 
+                src={GALLERY_IMAGES[activeIndex]} 
                 alt="JINPENG LINGBOX-Z 410km" 
                 fill 
                 className="object-cover"
@@ -40,21 +51,27 @@ export default function InventoryPage() {
 
             {/* Thumbnail Gallery */}
             <div className="grid grid-cols-4 gap-4">
-              <div className="relative h-24 sm:h-32 rounded-xl overflow-hidden cursor-pointer">
-                <Image src="/Lingbox-Z/lingbox1.webp" alt="Gallery 1" fill className="object-cover hover:scale-105 transition-transform" />
-              </div>
-              <div className="relative h-24 sm:h-32 rounded-xl overflow-hidden cursor-pointer">
-                 <Image src="/car_interior.png" alt="Gallery 2" fill className="object-cover hover:scale-105 transition-transform" />
-              </div>
-              <div className="relative h-24 sm:h-32 rounded-xl overflow-hidden cursor-pointer">
-                <Image src="/Lingbox-Z/lingbox1.webp" alt="Gallery 3" fill className="object-cover hover:scale-105 transition-transform" />
-              </div>
-              <div className="relative h-24 sm:h-32 rounded-xl overflow-hidden cursor-pointer group">
-                <Image src="/car_interior.png" alt="Gallery 4" fill className="object-cover group-hover:scale-105 transition-transform" />
-                <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">+12 More</span>
+              {GALLERY_IMAGES.map((img, idx) => (
+                <div 
+                  key={idx} 
+                  className={`relative h-24 sm:h-32 rounded-xl overflow-hidden cursor-pointer border-2 transition-all ${
+                    activeIndex === idx ? 'border-[#ea2e33]' : 'border-transparent'
+                  }`}
+                  onClick={() => setActiveIndex(idx)}
+                >
+                  <Image 
+                    src={img} 
+                    alt={`Gallery ${idx + 1}`} 
+                    fill 
+                    className={`object-cover transition-transform duration-500 ${activeIndex !== idx && 'hover:scale-110'}`} 
+                  />
+                  {idx === 3 && (
+                    <div className="absolute inset-0 bg-black/50 flex items-center justify-center pointer-events-none">
+                      <span className="text-white font-bold text-sm">+12 More</span>
+                    </div>
+                  )}
                 </div>
-              </div>
+              ))}
             </div>
           </div>
 
