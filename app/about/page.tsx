@@ -69,7 +69,7 @@ export default function AboutPage() {
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 mb-1">Phone</h4>
-                    <p className="text-slate-600">+86-18621849140</p>
+                    <p className="text-slate-600">014522211</p>
                   </div>
                 </div>
 
@@ -83,15 +83,16 @@ export default function AboutPage() {
                   </div>
                 </div>
 
-                <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex items-start gap-4 hover:shadow-md transition-shadow">
-                  <div className="bg-orange-50 p-3 rounded-full text-[#ea2e33]">
+                <a href="https://maps.app.goo.gl/X7Y9k867kFBmJhhz8?g_st=ic" target="_blank" rel="noopener noreferrer" className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex items-start gap-4 hover:shadow-md hover:border-[#ea2e33]/30 transition-all group cursor-pointer w-full">
+                  <div className="bg-orange-50 p-3 rounded-full text-[#ea2e33] group-hover:bg-[#ea2e33] group-hover:text-white transition-colors">
                     <MapPin size={24} />
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 mb-1">Location</h4>
-                    <p className="text-slate-600 text-sm">To The East of Tunshi River, West of Tunqing Road, Xuzhou Industrial Park</p>
+                    <p className="text-slate-600 text-sm mb-2">Baneshwor, Kathmandu<br/>Nepal</p>
+                    <span className="text-xs font-bold text-[#ea2e33] uppercase tracking-widest group-hover:underline">View on Map &rarr;</span>
                   </div>
-                </div>
+                </a>
                 
                 <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex items-start gap-4 hover:shadow-md transition-shadow">
                   <div className="bg-orange-50 p-3 rounded-full text-[#ea2e33]">
