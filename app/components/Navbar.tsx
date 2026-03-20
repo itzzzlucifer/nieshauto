@@ -28,7 +28,7 @@ export default function Navbar() {
         <Link href="#" className="hover:text-[#ea2e33] transition-colors">Services</Link>
         <Link href="#" className="hover:text-[#ea2e33] transition-colors">Blog</Link>
         <Link href="#" className="hover:text-[#ea2e33] transition-colors">About</Link>
-        <Link href="#" className="text-xs font-bold tracking-wider uppercase hover:text-[#ea2e33] transition-colors">CONTACT</Link>
+        <Link href="#" className="text-sm font-semibold hover:text-[#ea2e33] transition-colors">Contact</Link>
       </div>
 
       {/* Search and CTA */}
@@ -36,6 +36,7 @@ export default function Navbar() {
         <div className="relative hidden lg:block">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
           <input 
+            suppressHydrationWarning
             type="text" 
             placeholder="Search insights..." 
             className="pl-9 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#ea2e33]/20 focus:border-[#ea2e33] transition-all w-64"

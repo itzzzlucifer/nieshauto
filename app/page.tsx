@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Brands from "./components/Brands";
-import SearchFilter from "./components/SearchFilter";
+import Banner from "./components/Banner";
 import LatestInventory from "./components/LatestInventory";
 import Financing from "./components/Financing";
 import Footer from "./components/Footer";
@@ -14,7 +14,7 @@ export default function Home() {
       <main className="flex-grow">
         <Hero />
         <Brands />
-        <SearchFilter />
+        <Banner />
         <LatestInventory />
         <Financing />
       </main>

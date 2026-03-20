@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Send } from "lucide-react";
 
 export default function Footer() {
@@ -8,8 +9,19 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           {/* Brand Info */}
           <Link href="/" className="md:col-span-1 block group">
-            <div className="text-2xl font-black tracking-tighter text-slate-900 mb-6 uppercase group-hover:text-[#ea2e33] transition-colors">
-              LOGOXYZ
+            <div className="flex items-center gap-2 mb-6">
+              <div className="relative w-10 h-10 overflow-hidden rounded-full ring-2 ring-gray-100">
+                <Image 
+                  src="/logo.jpeg" 
+                  alt="Niesh Automobile Logo" 
+                  fill 
+                  className="object-cover group-hover:scale-105 transition-transform"
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-lg font-black italic tracking-tighter text-[#ea2e33] leading-none">NIESH</span>
+                <span className="text-[10px] font-bold tracking-widest text-[#101c40] leading-none uppercase">Automobile Pvt. Ltd.</span>
+              </div>
             </div>
             <p className="text-sm text-gray-500 leading-relaxed max-w-xs">
               Experience the pinnacle of automotive excellence. We provide curated premium vehicles for enthusiasts and families alike.
@@ -42,6 +54,7 @@ export default function Footer() {
             <p className="text-sm text-gray-500 mb-4">Stay updated with new stock arrivals.</p>
             <div className="flex">
               <input
+                suppressHydrationWarning
                 type="email"
                 placeholder="Email"
                 className="bg-gray-50 border border-gray-200 rounded-l-lg px-4 py-2.5 text-sm w-full focus:outline-none focus:ring-2 focus:ring-[#ea2e33]/20 focus:border-[#ea2e33] transition-all"
@@ -55,7 +68,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400">
-          <p>© 2026 Niesh Automobile. All rights reserved.</p>
+          <p>© 2026 Niesh Automobile Pvt. Ltd. All rights reserved.</p>
           <div className="flex gap-6 border-gray-100">
             <Link href="#" className="hover:text-gray-600 transition-colors">Privacy Policy</Link>
             <Link href="#" className="hover:text-gray-600 transition-colors">Terms of Service</Link>

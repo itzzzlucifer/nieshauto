@@ -10,8 +10,12 @@ import Footer from "../components/Footer";
 const GALLERY_IMAGES = [
   "/Lingbox-Z/lingbox1.webp",
   "/car_interior.png",
-  "/Lingbox-Z/lingbox1.webp",
-  "/car_interior.png"
+  "/Lingbox-Z/lingbox_2.jpeg",
+  "/Lingbox-Z/linbox_4.jpeg",
+  "/Lingbox-Z/lingbox_5.jpeg",
+  "/Lingbox-Z/lingbox_6.jpeg",
+  "/Lingbox-Z/lingbox_7.jpeg",
+  "/Lingbox-Z/lingbox_8.jpeg"
 ];
 
 export default function InventoryPage() {
@@ -65,11 +69,6 @@ export default function InventoryPage() {
                     fill 
                     className={`object-cover transition-transform duration-500 ${activeIndex !== idx && 'hover:scale-110'}`} 
                   />
-                  {idx === 3 && (
-                    <div className="absolute inset-0 bg-black/50 flex items-center justify-center pointer-events-none">
-                      <span className="text-white font-bold text-sm">+12 More</span>
-                    </div>
-                  )}
                 </div>
               ))}
             </div>
@@ -81,6 +80,14 @@ export default function InventoryPage() {
               
               <div className="flex justify-between items-start mb-6">
                 <div>
+                  <div className="relative w-20 h-8 mb-4">
+                    <Image 
+                      src="/jinpeng_logo.jpg" 
+                      alt="Jinpeng Logo" 
+                      fill 
+                      className="object-contain object-left"
+                    />
+                  </div>
                   <span className="inline-block bg-orange-50 text-[#ea2e33] text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3">Available Now</span>
                   <h2 className="text-2xl font-black text-[#101c40]">Standard Edition</h2>
                 </div>
@@ -252,7 +259,7 @@ export default function InventoryPage() {
               <div>
                 <span className="text-sm font-bold text-gray-500 block mb-3">Interest Rate (%)</span>
                 <div className="bg-white border border-gray-200 px-4 py-3 rounded-lg flex items-center">
-                  <input type="text" value="4.99" readOnly className="w-full text-slate-900 font-semibold focus:outline-none" />
+                  <input suppressHydrationWarning type="text" value="4.99" readOnly className="w-full text-slate-900 font-semibold focus:outline-none" />
                 </div>
               </div>
             </div>

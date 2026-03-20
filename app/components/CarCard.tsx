@@ -31,7 +31,7 @@ export default function CarCard({ car }: { car: CarProp }) {
   };
 
   return (
-    <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl transition-all group flex flex-col h-full">
+    <Link href="/inventory" className="block bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl transition-all group flex flex-col h-full">
       {/* Image Container */}
       <div className="relative h-[220px] w-full bg-slate-100 overflow-hidden">
         <Image 
@@ -77,12 +77,12 @@ export default function CarCard({ car }: { car: CarProp }) {
         </div>
 
         {/* Action */}
-        <Link href="/inventory" className="block w-full">
-          <button className="w-full bg-slate-50 hover:bg-slate-100 text-slate-900 font-semibold py-3.5 rounded-xl transition-colors mt-auto border border-gray-100">
+        <div className="block w-full">
+          <div className="w-full bg-slate-50 group-hover:bg-slate-100 text-slate-900 font-semibold py-3.5 rounded-xl transition-colors mt-auto border border-gray-100 text-center">
             View Details
-          </button>
-        </Link>
+          </div>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }
