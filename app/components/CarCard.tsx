@@ -38,8 +38,15 @@ export default function CarCard({ car }: { car: CarProp }) {
           src={car.image} 
           alt={car.title} 
           fill 
-          className="object-cover group-hover:scale-105 transition-transform duration-500"
+          className="object-cover group-hover:scale-110 transition-transform duration-700"
         />
+
+        {/* Hover Overlay */}
+        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
+          <div className="bg-white/20 backdrop-blur-md border border-white/50 text-white font-bold px-6 py-2 rounded-full transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-xl flex items-center gap-2">
+            <span>View</span>
+          </div>
+        </div>
         
         {/* Top Badge */}
         {car.badge.type !== "None" && (

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ChevronRight, Share2, Zap, ShieldCheck, Timer, Calendar, BarChart3, Gauge, Battery, Lock, Sparkles, Navigation } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import SpecificationAccordion from "../components/SpecificationAccordion";
 
 const GALLERY_IMAGES = [
   "/Lingbox-Z/lingbox1.webp",
@@ -20,6 +21,25 @@ const GALLERY_IMAGES = [
 
 export default function InventoryPage() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [zoom, setZoom] = useState({ x: 50, y: 50, bgX: 50, bgY: 50 });
+  const [isZooming, setIsZooming] = useState(false);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+    let x = ((e.clientX - left) / width) * 100;
+    let y = ((e.clientY - top) / height) * 100;
+    
+    // The zoom pane acts essentially as a 2.5x scale.
+    // Box dimensions: 20% width (10% half), 40% height (20% half)
+    x = Math.max(10, Math.min(90, x));
+    y = Math.max(20, Math.min(80, y));
+
+    const bgX = ((x - 10) / 80) * 100;
+    const bgY = ((y - 20) / 60) * 100;
+    
+    setZoom({ x, y, bgX, bgY });
+  };
+
   return (
     <div className="min-h-screen flex flex-col pt-[88px] bg-[#f8f9fa]">
       <Navbar />
@@ -36,38 +56,74 @@ export default function InventoryPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
           {/* Left Column - Gallery */}
-          <div className="lg:col-span-2 space-y-4">
+          <div className="lg:col-span-2 space-y-4 relative">
             {/* Main Featured Image */}
-            <div className="relative h-[400px] sm:h-[500px] w-full rounded-3xl overflow-hidden bg-slate-900 shadow-lg">
-              <Image 
-                src={GALLERY_IMAGES[activeIndex]} 
-                alt="JINPENG LINGBOX-Z 410km" 
-                fill 
+            <div 
+              className="relative h-[400px] sm:h-[500px] w-full rounded-3xl overflow-hidden bg-slate-900 shadow-lg cursor-crosshair"
+              onMouseEnter={() => setIsZooming(true)}
+              onMouseLeave={() => setIsZooming(false)}
+              onMouseMove={handleMouseMove}
+            >
+              <Image
+                src={GALLERY_IMAGES[activeIndex]}
+                alt="JINPENG LINGBOX-Z 410km"
+                fill
                 className="object-cover"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-              <div className="absolute bottom-8 left-8">
+              <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-300 pointer-events-none ${isZooming ? 'opacity-0' : 'opacity-100'}`} />
+              <div className={`absolute bottom-8 left-8 transition-opacity duration-300 pointer-events-none ${isZooming ? 'opacity-0' : 'opacity-100'}`}>
                 <h1 className="text-4xl sm:text-5xl font-black text-white mb-2 tracking-tight">JINPENG LINGBOX-Z 410km</h1>
                 <p className="text-gray-300 font-medium tracking-wide">The Smart Urban Companion</p>
               </div>
+
+              {/* Daraz-style Zoom Box Indicator */}
+              {isZooming && (
+                <div 
+                  className="hidden lg:block absolute pointer-events-none bg-white/20 border border-white/50 shadow-sm transition-opacity duration-150"
+                  style={{
+                    width: '20%',
+                    height: '40%',
+                    left: `${zoom.x}%`,
+                    top: `${zoom.y}%`,
+                    transform: 'translate(-50%, -50%)'
+                  }}
+                />
+              )}
             </div>
+
+            {/* Render Daraz-style Zoom Pane */}
+            {isZooming && (
+              <div className="hidden lg:block absolute top-0 left-full ml-8 w-[calc(50%-1rem)] h-[500px] bg-white rounded-3xl shadow-2xl z-50 pointer-events-none border border-gray-100 overflow-hidden">
+                 <div className="relative w-full h-full">
+                    <Image 
+                      src={GALLERY_IMAGES[activeIndex]}
+                      alt="Zoomed Detail"
+                      fill
+                      className="object-cover"
+                      style={{
+                        transformOrigin: `${zoom.bgX}% ${zoom.bgY}%`,
+                        transform: 'scale(2.5)'
+                      }}
+                    />
+                 </div>
+              </div>
+            )}
 
             {/* Thumbnail Gallery */}
             <div className="grid grid-cols-4 gap-4">
               {GALLERY_IMAGES.map((img, idx) => (
-                <div 
-                  key={idx} 
-                  className={`relative h-24 sm:h-32 rounded-xl overflow-hidden cursor-pointer border-2 transition-all ${
-                    activeIndex === idx ? 'border-[#ea2e33]' : 'border-transparent'
-                  }`}
+                <div
+                  key={idx}
+                  className={`relative h-24 sm:h-32 rounded-xl overflow-hidden cursor-pointer border-2 transition-all ${activeIndex === idx ? 'border-[#ea2e33]' : 'border-transparent'
+                    }`}
                   onClick={() => setActiveIndex(idx)}
                 >
-                  <Image 
-                    src={img} 
-                    alt={`Gallery ${idx + 1}`} 
-                    fill 
-                    className={`object-cover transition-transform duration-500 ${activeIndex !== idx && 'hover:scale-110'}`} 
+                  <Image
+                    src={img}
+                    alt={`Gallery ${idx + 1}`}
+                    fill
+                    className={`object-cover transition-transform duration-500 ${activeIndex !== idx && 'hover:scale-110'}`}
                   />
                 </div>
               ))}
@@ -77,14 +133,14 @@ export default function InventoryPage() {
           {/* Right Column - Pricing Card */}
           <div className="lg:col-span-1">
             <div className="sticky top-[120px] bg-white rounded-3xl p-8 border border-gray-100 shadow-xl shadow-gray-200/50">
-              
+
               <div className="flex justify-between items-start mb-6">
                 <div>
                   <div className="relative w-20 h-8 mb-4">
-                    <Image 
-                      src="/jinpeng_logo.jpg" 
-                      alt="Jinpeng Logo" 
-                      fill 
+                    <Image
+                      src="/jinpeng_logo.jpg"
+                      alt="Jinpeng Logo"
+                      fill
                       className="object-contain object-left"
                     />
                   </div>
@@ -170,14 +226,14 @@ export default function InventoryPage() {
         {/* Feature Highlights */}
         <section className="mb-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            
+
             <div className="space-y-10">
               <div>
                 <h2 className="text-3xl lg:text-4xl font-light text-slate-900 mb-8 tracking-tight">
-                   Smart Cockpit & Safety Suite
+                  Smart Cockpit & Safety Suite
                 </h2>
               </div>
-              
+
               <div className="space-y-8">
                 <div className="flex gap-6">
                   <div className="w-12 h-12 rounded-full bg-orange-50 flex items-center justify-center flex-shrink-0">
@@ -212,14 +268,22 @@ export default function InventoryPage() {
             </div>
 
             <div className="h-[400px] lg:h-[500px] rounded-3xl overflow-hidden relative shadow-2xl">
-              <Image 
+              <Image
                 src="/car_interior.png"
-                alt="Interior Dashboard" 
-                fill 
+                alt="Interior Dashboard"
+                fill
                 className="object-cover"
               />
             </div>
-            
+
+          </div>
+        </section>
+
+        {/* Specifications Table */}
+        <section className="mb-24">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl lg:text-4xl font-light text-slate-900 mb-8 tracking-tight">Full Specifications</h2>
+            <SpecificationAccordion />
           </div>
         </section>
 
@@ -232,7 +296,7 @@ export default function InventoryPage() {
 
           <div className="max-w-4xl mx-auto bg-transparent flex flex-col md:flex-row gap-12 lg:gap-20">
             <div className="flex-1 space-y-8">
-              
+
               <div>
                 <div className="flex justify-between items-center mb-4">
                   <span className="text-sm font-bold text-slate-900">Down Payment</span>
