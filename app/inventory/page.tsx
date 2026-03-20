@@ -3,13 +3,13 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronRight, Share2, Zap, ShieldCheck, Timer, Calendar, BarChart3, Gauge, Battery, Lock, Sparkles, Navigation } from "lucide-react";
+import { ChevronRight, Share2, Zap, ShieldCheck, Timer, Calendar, BarChart3, Gauge, Battery, Lock, Sparkles, Navigation, Download } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SpecificationAccordion from "../components/SpecificationAccordion";
 
 const GALLERY_IMAGES = [
-  "/Lingbox-Z/lingbox1.webp",
+  "/Lingbox-Z/lingbox_1.webp",
   "/car_interior.png",
   "/Lingbox-Z/lingbox_2.jpeg",
   "/Lingbox-Z/linbox_4.jpeg",
@@ -178,7 +178,7 @@ export default function InventoryPage() {
                   <Calendar className="w-5 h-5" />
                   Book a Test Drive
                 </Link>
-                <a href="/Specification.pdf" download className="w-full bg-white hover:bg-gray-50 text-[#ea2e33] font-bold py-4 rounded-xl border-2 border-[#ea2e33] transition-colors flex items-center justify-center">
+                <a href="/BOX-Z.pdf" download className="w-full bg-white hover:bg-gray-50 text-[#ea2e33] font-bold py-4 rounded-xl border-2 border-[#ea2e33] transition-colors flex items-center justify-center">
                   Download Brochure
                 </a>
               </div>
@@ -284,6 +284,13 @@ export default function InventoryPage() {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl lg:text-4xl font-light text-slate-900 mb-8 tracking-tight">Full Specifications</h2>
             <SpecificationAccordion />
+            
+            <div className="mt-8 flex justify-center">
+              <a href="/Specification.pdf" download className="inline-flex items-center gap-2 bg-white text-[#ea2e33] border-2 border-[#ea2e33] hover:bg-gray-50 font-bold px-8 py-4 rounded-xl transition-all shadow-lg shadow-[#ea2e33]/10">
+                <Download className="w-5 h-5" />
+                Download Specifications (.pdf)
+              </a>
+            </div>
           </div>
         </section>
 

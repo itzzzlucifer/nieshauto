@@ -23,9 +23,9 @@ export default function Hero() {
             <Link href="/inventory" className="w-full sm:w-auto bg-[#101c40] hover:bg-[#1a2b5e] text-center text-white px-8 py-4 rounded-xl font-semibold transition-all shadow-lg shadow-[#101c40]/20">
               Explore Inventory
             </Link>
-            <button className="w-full sm:w-auto bg-white border-2 border-gray-100 hover:border-gray-200 text-slate-800 px-8 py-4 rounded-xl font-semibold transition-all hover:bg-gray-50">
-              View Offers
-            </button>
+            <Link href="/test-drive" className="w-full sm:w-auto text-center bg-[#ea2e33] hover:bg-[#d8272c] text-white px-8 py-4 rounded-xl font-semibold transition-all shadow-lg shadow-[#ea2e33]/30">
+              Book Test Drive
+            </Link>
           </div>
         </div>
 
@@ -34,7 +34,7 @@ export default function Hero() {
           {/* We'll use a placeholder image for the BYD given we don't have the exact cutout */}
           <div className="absolute inset-0 w-full h-full object-cover">
             <Image 
-              src="/Lingbox-Z/lingbox1.webp" 
+              src="/Lingbox-Z/lingbox_1.webp" 
               alt="Lingbox Z" 
               fill 
               className="object-cover rounded-[1.5rem]"

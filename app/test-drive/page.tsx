@@ -62,7 +62,7 @@ export default function TestDrivePage() {
             <div className="group cursor-pointer">
               <div className="relative h-56 rounded-2xl overflow-hidden border-2 border-[#ea2e33] transition-all mb-4 shadow-lg shadow-[#ea2e33]/10">
                 <Image 
-                  src="/Lingbox-Z/lingbox1.webp" 
+                  src="/Lingbox-Z/lingbox_1.webp" 
                   alt="Jinpeng Lingbox-Z" 
                   fill 
                   className="object-cover"

@@ -8,7 +8,7 @@ const inventory: CarProp[] = [
     price: "NRP 20,00,000",
     title: "Jinpeng Lingbox-Z",
     subtitle: "2024 • 410km Range (CLTC)",
-    image: "/Lingbox-Z/lingbox1.webp",
+    image: "/Lingbox-Z/lingbox_1.webp",
     features: [
       { label: "Range", value: "410 km", iconType: "range" },
       { label: "Battery", value: "40.6 kWh", iconType: "battery" },
