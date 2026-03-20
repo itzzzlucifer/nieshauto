@@ -52,7 +52,7 @@ export default function Hero() {
             </div>
             <div className="text-right">
               <p className="text-gray-300 text-[10px] sm:text-sm font-medium mb-0.5 sm:mb-1 uppercase tracking-wider">Starting at</p>
-              <p className="text-white text-base sm:text-2xl font-bold leading-tight">NRP20,00,000</p>
+              <p className="text-white text-base sm:text-2xl font-bold leading-tight">NRP31,60,000</p>
             </div>
           </div>
         </div>

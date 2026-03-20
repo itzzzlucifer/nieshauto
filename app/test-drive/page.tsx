@@ -135,7 +135,7 @@ export default function TestDrivePage() {
               <div className="flex items-center justify-between px-1">
                 <div>
                   <h3 className="text-lg font-bold text-slate-900">Jinpeng Lingbox-Z</h3>
-                  <p className="text-sm text-gray-500">Starting at NRP 20,00,000</p>
+                  <p className="text-sm text-gray-500">Starting at NRP 31,60,000</p>
                 </div>
                 <div className="w-6 h-6 rounded-full bg-[#ea2e33] flex items-center justify-center">
                   <CheckCircle2 className="w-4 h-4 text-white" />

@@ -249,8 +249,8 @@ export default function InventoryPage() {
 
               <div className="mb-8">
                 <p className="text-gray-400 text-xs font-bold uppercase tracking-widest mb-1">Starting from</p>
-                <div className="text-5xl font-black text-[#ea2e33] mb-2 tracking-tight">NRP 20,00,000</div>
-                <p className="text-gray-500 text-sm">Estimated monthly: <span className="font-bold text-slate-800">$789/mo</span></p>
+                <div className="text-5xl font-black text-[#ea2e33] mb-2 tracking-tight">NRP 31,60,000</div>
+                <p className="text-gray-500 text-sm">Estimated monthly: <span className="font-bold text-slate-800">NRP 45,030/mo</span></p>
               </div>
 
               <div className="space-y-4 mb-8">
@@ -424,7 +424,7 @@ export default function InventoryPage() {
               <div>
                 <div className="flex justify-between items-center mb-4">
                   <span className="text-sm font-bold text-slate-900">Down Payment</span>
-                  <span className="text-lg font-black text-[#ea2e33]">NRP 5,00,000</span>
+                  <span className="text-lg font-black text-[#ea2e33]">NRP 7,90,000</span>
                 </div>
                 <div className="h-2 w-full bg-blue-100 rounded-full relative">
                   <div className="absolute left-0 top-0 h-full w-1/4 bg-[#101c40] rounded-full" />
@@ -454,7 +454,7 @@ export default function InventoryPage() {
 
             <div className="w-full md:w-[350px] bg-white rounded-3xl p-8 shadow-xl text-center flex flex-col items-center justify-center">
               <span className="text-xs font-bold text-gray-400 tracking-widest uppercase mb-4">Monthly Payment</span>
-              <div className="text-4xl font-black text-[#101c40] tracking-tight mb-4">NRP 28,500</div>
+              <div className="text-4xl font-black text-[#101c40] tracking-tight mb-4">NRP 45,030</div>
               <p className="text-[10px] text-gray-400 leading-relaxed max-w-[200px] mb-8">
                 Price excludes tax, title, and registration fees. Subject to credit approval.
               </p>

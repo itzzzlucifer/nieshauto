@@ -8,7 +8,7 @@ export default function Brands() {
           Exclusive Authorized Partner
         </span>
         <div className="h-8 w-px bg-gray-200 hidden md:block" />
-        <div className="relative w-32 h-12 grayscale hover:grayscale-0 transition-all duration-500">
+        <div className="relative w-64 h-24 grayscale hover:grayscale-0 transition-all duration-500">
           <Image 
             src="/jinpeng_logo.jpg" 
             alt="Jinpeng Motors" 

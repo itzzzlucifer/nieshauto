@@ -33,9 +33,9 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-slate-900 mb-6">Inventory</h4>
             <ul className="space-y-4 text-sm text-gray-500">
-              <li><Link href="#" className="hover:text-[#ea2e33] transition-colors">New Vehicles</Link></li>
-              <li><Link href="#" className="hover:text-[#ea2e33] transition-colors">Electric Fleet</Link></li>
-              <li><Link href="#" className="hover:text-[#ea2e33] transition-colors">Special Offers</Link></li>
+              <li><Link href="/inventory" className="hover:text-[#ea2e33] transition-colors">Jinpeng Lingbox-Z</Link></li>
+              <li><Link href="/inventory#specifications" className="hover:text-[#ea2e33] transition-colors">Full Specifications</Link></li>
+              <li><Link href="/test-drive" className="hover:text-[#ea2e33] transition-colors">Book a Test Drive</Link></li>
             </ul>
           </div>
 
@@ -43,9 +43,9 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-slate-900 mb-6">Support</h4>
             <ul className="space-y-4 text-sm text-gray-500">
-              <li><Link href="#" className="hover:text-[#ea2e33] transition-colors">Service Center</Link></li>
-              <li><Link href="#" className="hover:text-[#ea2e33] transition-colors">Finance Options</Link></li>
-              <li><Link href="#" className="hover:text-[#ea2e33] transition-colors">Contact Us</Link></li>
+              <li><Link href="/about" className="hover:text-[#ea2e33] transition-colors">About Us</Link></li>
+              <li><Link href="/about#contact" className="hover:text-[#ea2e33] transition-colors">Contact Support</Link></li>
+              <li><a href="https://maps.app.goo.gl/X7Y9k867kFBmJhhz8?g_st=ic" target="_blank" rel="noopener noreferrer" className="hover:text-[#ea2e33] transition-colors">Our Location</a></li>
             </ul>
           </div>
 

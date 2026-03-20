@@ -40,7 +40,7 @@ export default function AboutPage() {
               </div>
               <div className="relative h-[400px] lg:h-[500px] w-full rounded-3xl overflow-hidden shadow-2xl">
                 <Image 
-                  src="/Lingbox-Z/lingbox_2.jpeg" 
+                  src="/Lingbox-Z/lingbox_2.webp" 
                   alt="Jinpeng Lingbox Showcase" 
                   fill 
                   className="object-cover"

@@ -8,7 +8,7 @@ const inventory: CarProp[] = [
   {
     id: "1",
     badge: { type: "Electric" },
-    price: "NRP 20,00,000",
+    price: "NRP 31,60,000",
     title: "Jinpeng Lingbox-Z",
     subtitle: "2024 • 410km Range (CLTC)",
     image: "/Lingbox-Z/green/front_45.webp",
