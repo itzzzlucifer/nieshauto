@@ -59,10 +59,24 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400">
-          <p>© 2026 Niesh Automobile Pvt. Ltd. All rights reserved.</p>
+          <div className="flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
+            <p>© 2026 Niesh Automobile Pvt. Ltd. All rights reserved.</p>
+            <span className="hidden md:block h-3 w-[1px] bg-gray-200" />
+            <p>
+              Designed and Developed by{" "}
+              <Link 
+                href="https://kritimtechnologies.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-[#ea2e33] font-bold transition-colors"
+              >
+                Kritim Technologies Pvt. Ltd.
+              </Link>
+            </p>
+          </div>
           <div className="flex gap-6 border-gray-100">
-            <Link href="#" className="hover:text-gray-600 transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-gray-600 transition-colors">Terms of Service</Link>
+            <Link href="/privacy" className="hover:text-gray-600 transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-gray-600 transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
