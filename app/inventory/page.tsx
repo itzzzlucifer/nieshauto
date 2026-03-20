@@ -8,14 +8,63 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SpecificationAccordion from "../components/SpecificationAccordion";
 
-const ANGLES = ["front_45.png", "front_45_alt.png", "side.png", "rear_45.png", "rear.png", "rear_45_alt.png", "front.png"];
-
 const COLOR_VARIANTS = [
-  { name: "Mint Green", color: "#9CC5A1", folder: "green" },
-  { name: "Space Grey", color: "#8E8E93", folder: "grey" },
-  { name: "Rose Pink", color: "#EAB8C7", folder: "pink" },
-  { name: "Pearl White", color: "#F0EDE8", folder: "white" },
+  { 
+    name: "Mint Green", 
+    color: "#9CC5A1", 
+    images: [
+      "/Lingbox-Z/green/front_45.webp",
+      "/Lingbox-Z/green/front_45_alt.webp",
+      "/Lingbox-Z/green/side.webp",
+      "/Lingbox-Z/green/rear_45.webp",
+      "/Lingbox-Z/green/rear.webp",
+      "/Lingbox-Z/green/rear_45_alt.webp",
+      "/Lingbox-Z/green/front.webp"
+    ]
+  },
+  { 
+    name: "Space Grey", 
+    color: "#8E8E93", 
+    images: [
+      "/Lingbox-Z/grey/front_45.webp",
+      "/Lingbox-Z/grey/front_45_alt.webp",
+      "/Lingbox-Z/grey/side.webp",
+      "/Lingbox-Z/grey/rear_45.webp",
+      "/Lingbox-Z/grey/rear.webp",
+      "/Lingbox-Z/grey/rear_45_alt.webp",
+      "/Lingbox-Z/grey/front.webp"
+    ]
+  },
+  { 
+    name: "Rose Pink", 
+    color: "#EAB8C7", 
+    images: [
+      "/Lingbox-Z/pink/front_45.webp",
+      "/Lingbox-Z/pink/front_45_alt.webp",
+      "/Lingbox-Z/pink/side.webp",
+      "/Lingbox-Z/pink/rear_45.webp",
+      "/Lingbox-Z/pink/rear.webp",
+      "/Lingbox-Z/pink/rear_45_alt.webp",
+      "/Lingbox-Z/pink/front.webp"
+    ]
+  },
+  { 
+    name: "Pearl White", 
+    color: "#F0EDE8", 
+    images: [
+      "/Lingbox-Z/white/front_45.webp",
+      "/Lingbox-Z/white/front_45_alt.webp",
+      "/Lingbox-Z/white/side.webp",
+      "/Lingbox-Z/white/rear_45.webp",
+      "/Lingbox-Z/white/rear.webp",
+      "/Lingbox-Z/white/rear_45_alt.webp",
+      "/Lingbox-Z/white/front.webp"
+    ]
+  },
 ];
+
+// All images across all colors and angles — preloaded eagerly on mount
+const ALL_IMAGES = COLOR_VARIANTS.flatMap((v) => v.images);
 
 export default function InventoryPage() {
   const [activeColor, setActiveColor] = useState(0);
@@ -23,9 +72,7 @@ export default function InventoryPage() {
   const [zoom, setZoom] = useState({ x: 50, y: 50, bgX: 50, bgY: 50 });
   const [isZooming, setIsZooming] = useState(false);
 
-  const currentImages = ANGLES.map(
-    (angle) => `/Lingbox-Z/${COLOR_VARIANTS[activeColor].folder}/${angle}`
-  );
+  const currentImages = COLOR_VARIANTS[activeColor].images;
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
@@ -45,6 +92,13 @@ export default function InventoryPage() {
 
   return (
     <div className="min-h-screen flex flex-col pt-[88px] bg-[#f8f9fa]">
+      {/* Hidden preload: eagerly fetch every color+angle combo so color switching is instant */}
+      <div aria-hidden="true" className="hidden">
+        {ALL_IMAGES.map((src) => (
+          <Image key={src} src={src} alt="" fill priority sizes="1px" />
+        ))}
+      </div>
+
       <Navbar />
 
       <main className="flex-grow max-w-7xl mx-auto px-6 py-8 w-full">
@@ -66,7 +120,7 @@ export default function InventoryPage() {
               <div className="flex items-center gap-3">
                 {COLOR_VARIANTS.map((variant, idx) => (
                   <button
-                    key={variant.folder}
+                    key={variant.name}
                     onClick={() => { setActiveColor(idx); setActiveIndex(0); }}
                     className={`group relative flex flex-col items-center gap-1`}
                     title={variant.name}
@@ -96,6 +150,7 @@ export default function InventoryPage() {
                 fill
                 className="object-cover"
                 priority
+                sizes="(max-width: 1024px) 100vw, 66vw"
               />
               <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-300 pointer-events-none ${isZooming ? 'opacity-0' : 'opacity-100'}`} />
               <div className={`absolute bottom-8 left-8 transition-opacity duration-300 pointer-events-none ${isZooming ? 'opacity-0' : 'opacity-100'}`}>
@@ -150,6 +205,7 @@ export default function InventoryPage() {
                     alt={`Gallery ${idx + 1}`}
                     fill
                     className={`object-cover transition-transform duration-500 ${activeIndex !== idx && 'hover:scale-110'}`}
+                    sizes="(max-width: 640px) 25vw, 15vw"
                   />
                 </div>
               ))}
@@ -320,7 +376,7 @@ export default function InventoryPage() {
           </div>
         </section>
 
-        {/* Financing Section Box */}
+        {/* Financing Section Box - HIDDEN FOR NOW
         <section className="bg-orange-50/50 rounded-[2.5rem] p-10 lg:p-16 relative overflow-hidden">
           <div className="max-w-4xl mx-auto text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-black text-slate-900 mb-4">Financing Calculator</h2>
@@ -373,6 +429,7 @@ export default function InventoryPage() {
             </div>
           </div>
         </section>
+        */}
 
       </main>
 

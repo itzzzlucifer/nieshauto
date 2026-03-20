@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Send } from "lucide-react";
+import NewsletterForm from "./NewsletterForm";
 
 export default function Footer() {
   return (
@@ -52,17 +53,7 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-slate-900 mb-6">Newsletter</h4>
             <p className="text-sm text-gray-500 mb-4">Stay updated with new stock arrivals.</p>
-            <div className="flex">
-              <input
-                suppressHydrationWarning
-                type="email"
-                placeholder="Email"
-                className="bg-gray-50 border border-gray-200 rounded-l-lg px-4 py-2.5 text-sm w-full focus:outline-none focus:ring-2 focus:ring-[#ea2e33]/20 focus:border-[#ea2e33] transition-all"
-              />
-              <button className="bg-[#ea2e33] hover:bg-[#d6282d] text-white px-4 py-2.5 rounded-r-lg transition-colors flex items-center justify-center">
-                <Send className="w-4 h-4" />
-              </button>
-            </div>
+            <NewsletterForm />
           </div>
         </div>
 

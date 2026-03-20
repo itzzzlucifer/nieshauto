@@ -16,7 +16,7 @@ export default function Home() {
         <Brands />
         <Banner />
         <LatestInventory />
-        <Financing />
+        {/* <Financing /> */}
       </main>
 
       <Footer />

@@ -16,7 +16,7 @@ export type CarProp = {
   }[];
 };
 
-export default function CarCard({ car }: { car: CarProp }) {
+export default function CarCard({ car, viewMode = "grid" }: { car: CarProp, viewMode?: "grid" | "list" }) {
   const getIcon = (type: string) => {
     switch(type) {
       case "mileage": return <Gauge className="w-5 h-5 text-[#ea2e33]" />;
@@ -30,10 +30,12 @@ export default function CarCard({ car }: { car: CarProp }) {
     }
   };
 
+  const isList = viewMode === "list";
+
   return (
-    <Link href="/inventory" className="block bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl transition-all group flex flex-col h-full">
+    <Link href="/inventory" className={`block bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl transition-all group flex h-full ${isList ? 'flex-col sm:flex-row' : 'flex-col'}`}>
       {/* Image Container */}
-      <div className="relative h-[220px] w-full bg-slate-100 overflow-hidden">
+      <div className={`relative bg-slate-100 overflow-hidden ${isList ? 'h-[220px] sm:h-auto sm:w-2/5' : 'h-[220px] w-full'}`}>
         <Image 
           src={car.image} 
           alt={car.title} 
@@ -64,7 +66,7 @@ export default function CarCard({ car }: { car: CarProp }) {
       </div>
 
       {/* Content */}
-      <div className="p-6 flex flex-col flex-grow">
+      <div className={`p-6 flex flex-col flex-grow ${isList ? 'sm:w-3/5' : ''}`}>
         <div className="mb-6">
           <h3 className="text-xl font-bold text-slate-900 mb-1">{car.title}</h3>
           <p className="text-sm text-gray-500">{car.subtitle}</p>
@@ -84,8 +86,8 @@ export default function CarCard({ car }: { car: CarProp }) {
         </div>
 
         {/* Action */}
-        <div className="block w-full">
-          <div className="w-full bg-slate-50 group-hover:bg-slate-100 text-slate-900 font-semibold py-3.5 rounded-xl transition-colors mt-auto border border-gray-100 text-center">
+        <div className={`block w-full ${isList ? 'mt-auto' : 'mt-auto'}`}>
+          <div className="w-full bg-slate-50 group-hover:bg-slate-100 text-slate-900 font-semibold py-3.5 rounded-xl transition-colors border border-gray-100 text-center">
             View Details
           </div>
         </div>

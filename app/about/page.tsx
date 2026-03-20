@@ -2,6 +2,7 @@ import Image from "next/image";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import ContactForm from "../components/ContactForm";
 
 export const metadata = {
   title: "About Us | Niesh Automobile",
@@ -104,37 +105,7 @@ export default function AboutPage() {
               </div>
 
               {/* Contact Form */}
-              <div className="lg:col-span-2 bg-white rounded-3xl shadow-xl shadow-slate-200/50 border border-gray-100 overflow-hidden">
-                <div className="p-8 lg:p-12">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-6">Send us a message</h3>
-                  <form className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="space-y-2">
-                        <label className="text-sm font-semibold text-slate-700">Full Name</label>
-                        <input type="text" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#ea2e33]/20 focus:border-[#ea2e33] transition-all" placeholder="John Doe" title="Full Name input" />
-                      </div>
-                      <div className="space-y-2">
-                        <label className="text-sm font-semibold text-slate-700">Email Address</label>
-                        <input type="email" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#ea2e33]/20 focus:border-[#ea2e33] transition-all" placeholder="john@example.com" title="Email input" />
-                      </div>
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <label className="text-sm font-semibold text-slate-700">Subject</label>
-                      <input type="text" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#ea2e33]/20 focus:border-[#ea2e33] transition-all" placeholder="How can we help?" title="Subject input" />
-                    </div>
-
-                    <div className="space-y-2">
-                      <label className="text-sm font-semibold text-slate-700">Message</label>
-                      <textarea rows={5} className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#ea2e33]/20 focus:border-[#ea2e33] transition-all resize-none" placeholder="Write your message here..." title="Message input"></textarea>
-                    </div>
-
-                    <button type="button" className="w-full bg-[#ea2e33] hover:bg-[#d8272c] text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-[#ea2e33]/30">
-                      Send Message
-                    </button>
-                  </form>
-                </div>
-              </div>
+              <ContactForm />
             </div>
           </div>
         </section>

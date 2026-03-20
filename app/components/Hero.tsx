@@ -8,17 +8,17 @@ export default function Hero() {
         {/* Left Content */}
         <div className="w-full lg:w-1/2 space-y-8">
 
-          
+
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.1]">
             <span className="text-[#101c40] block">Experience</span>
             <span className="text-[#101c40] block">Premium</span>
             <span className="text-[#ea2e33] block mt-1">Mobility</span>
           </h1>
-          
+
           <p className="text-gray-500 text-lg md:text-xl max-w-md leading-relaxed">
             Discover the finest selection of Jinpeng vehicles tailored to your lifestyle and future.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">
             <Link href="/inventory" className="w-full sm:w-auto bg-[#101c40] hover:bg-[#1a2b5e] text-center text-white px-8 py-4 rounded-xl font-semibold transition-all shadow-lg shadow-[#101c40]/20">
               Explore Inventory
@@ -33,10 +33,10 @@ export default function Hero() {
         <div className="w-full lg:w-1/2 relative h-[300px] sm:h-[400px] lg:h-[500px] rounded-[2rem] overflow-hidden bg-gradient-to-tr from-slate-200 to-slate-100 p-2 shadow-2xl">
           {/* We'll use a placeholder image for the BYD given we don't have the exact cutout */}
           <div className="absolute inset-0 w-full h-full object-cover">
-            <Image 
-              src="/Lingbox-Z/lingbox_1.webp" 
-              alt="Lingbox Z" 
-              fill 
+            <Image
+              src="/Lingbox-Z/green/front_45.webp"
+              alt="Lingbox Z"
+              fill
               className="object-cover rounded-[1.5rem]"
               priority
             />

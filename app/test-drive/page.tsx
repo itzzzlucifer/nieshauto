@@ -1,9 +1,31 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { CheckCircle2, Calendar, MapPin, Star, Home as HomeIcon } from "lucide-react";
 
 export default function TestDrivePage() {
+  const [selectedDay, setSelectedDay] = useState(2);
+  const [selectedTime, setSelectedTime] = useState("");
+  const [selectedLocation, setSelectedLocation] = useState("niesh_auto");
+  const [formData, setFormData] = useState({ name: "", email: "", mobile: "" });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const days = ["MO", "TU", "WE", "TH", "FR", "SA", "SU"];
+  const times = ["09:00 AM", "10:30 AM", "12:00 PM", "02:30 PM", "04:00 PM", "05:30 PM"];
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!selectedTime) {
+      alert("Please select a time for your test drive.");
+      return;
+    }
+    // Implement API call here in the future
+    setIsSubmitted(true);
+  };
+
   return (
     <div className="min-h-screen flex flex-col pt-[88px] bg-[#f8f9fa]">
       <Navbar />
@@ -33,19 +55,19 @@ export default function TestDrivePage() {
         {/* Step Indicator */}
         <div className="max-w-4xl mx-auto -mt-10 relative z-10 px-6">
           <div className="bg-white rounded-2xl shadow-xl p-6 flex flex-col sm:flex-row items-center justify-between border border-gray-100 gap-4 sm:gap-0">
-            <div className="flex items-center gap-3 w-full sm:w-auto justify-center sm:justify-start">
+            <div className={`flex items-center gap-3 w-full sm:w-auto justify-center sm:justify-start ${isSubmitted ? 'opacity-50' : ''}`}>
               <div className="w-8 h-8 rounded-full bg-[#101c40] text-white flex items-center justify-center font-bold text-sm">1</div>
               <span className="text-xs font-bold tracking-wider text-slate-900 uppercase">Select Model</span>
             </div>
             <div className="h-px bg-gray-200 flex-1 mx-6 hidden sm:block" />
-            <div className="flex items-center gap-3 opacity-50 w-full sm:w-auto justify-center sm:justify-start">
-              <div className="w-8 h-8 rounded-full bg-gray-100 text-slate-500 flex items-center justify-center font-bold text-sm border border-gray-200">2</div>
-              <span className="text-xs font-bold tracking-wider text-slate-500 uppercase">Time & Place</span>
+            <div className={`flex items-center gap-3 w-full sm:w-auto justify-center sm:justify-start ${isSubmitted ? 'opacity-50' : ''}`}>
+              <div className={`w-8 h-8 rounded-full ${!isSubmitted ? 'bg-[#101c40] text-white' : 'bg-gray-100 text-slate-500'} flex items-center justify-center font-bold text-sm`}>2</div>
+              <span className={`text-xs font-bold tracking-wider uppercase ${!isSubmitted ? 'text-slate-900' : 'text-slate-500'}`}>Time & Place</span>
             </div>
             <div className="h-px bg-gray-200 flex-1 mx-6 hidden sm:block" />
-            <div className="flex items-center gap-3 opacity-50 w-full sm:w-auto justify-center sm:justify-start">
-              <div className="w-8 h-8 rounded-full bg-gray-100 text-slate-500 flex items-center justify-center font-bold text-sm border border-gray-200">3</div>
-              <span className="text-xs font-bold tracking-wider text-slate-500 uppercase">Finalize</span>
+            <div className={`flex items-center gap-3 w-full sm:w-auto justify-center sm:justify-start ${!isSubmitted ? 'opacity-50' : ''}`}>
+              <div className={`w-8 h-8 rounded-full ${isSubmitted ? 'bg-[#101c40] text-white border-0' : 'bg-gray-100 text-slate-500 border border-gray-200'} flex items-center justify-center font-bold text-sm`}>3</div>
+              <span className={`text-xs font-bold tracking-wider uppercase ${isSubmitted ? 'text-slate-900' : 'text-slate-500'}`}>Finalize</span>
             </div>
           </div>
         </div>
@@ -62,7 +84,7 @@ export default function TestDrivePage() {
             <div className="group cursor-pointer">
               <div className="relative h-56 rounded-2xl overflow-hidden border-2 border-[#ea2e33] transition-all mb-4 shadow-lg shadow-[#ea2e33]/10">
                 <Image 
-                  src="/Lingbox-Z/lingbox_1.webp" 
+                  src="/Lingbox-Z/green/front_45.webp" 
                   alt="Jinpeng Lingbox-Z" 
                   fill 
                   className="object-cover"
@@ -87,7 +109,7 @@ export default function TestDrivePage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             
             {/* Left Column (Date & Location) */}
-            <div className="lg:col-span-2 space-y-8">
+            <div className={`lg:col-span-2 space-y-8 ${isSubmitted ? 'opacity-50 pointer-events-none' : ''}`}>
               
               {/* Date & Time */}
               <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm">
@@ -99,15 +121,16 @@ export default function TestDrivePage() {
                 <div className="mb-8">
                   <span className="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Select Day</span>
                   <div className="flex justify-between">
-                    {["MO", "TU", "WE", "TH", "FR", "SA", "SU"].map((day, i) => (
+                    {days.map((day, i) => (
                       <div key={i} className="flex flex-col items-center gap-2">
                         <span className="text-xs font-bold text-gray-400">{day}</span>
-                        <button className={`w-10 h-10 rounded-xl font-bold text-sm flex items-center justify-center transition-all ${
-                          i === 2 
+                        <button 
+                          onClick={() => setSelectedDay(i)}
+                          type="button"
+                          className={`w-10 h-10 rounded-xl font-bold text-sm flex items-center justify-center transition-all ${
+                          selectedDay === i 
                             ? "bg-[#ea2e33] text-white shadow-md shadow-[#ea2e33]/20" 
-                            : i > 3 
-                              ? "text-gray-300 cursor-not-allowed" 
-                              : "text-slate-900 hover:bg-gray-50"
+                            : "text-slate-900 hover:bg-gray-50"
                         }`}>
                           {12 + i}
                         </button>
@@ -119,13 +142,15 @@ export default function TestDrivePage() {
                 <div>
                   <span className="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Select Time</span>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                    {["09:00 AM", "10:30 AM", "12:00 PM", "02:30 PM", "04:00 PM", "05:30 PM"].map((time, i) => (
-                      <button key={i} className={`py-3 rounded-xl text-sm font-bold border transition-all ${
-                        time === "10:30 AM"
+                    {times.map((time, i) => (
+                      <button 
+                        key={i} 
+                        onClick={() => setSelectedTime(time)}
+                        type="button"
+                        className={`py-3 rounded-xl text-sm font-bold border transition-all ${
+                        selectedTime === time
                           ? "border-[#ea2e33] text-[#ea2e33] bg-red-50"
-                          : i === 5
-                            ? "border-gray-100 text-gray-300 cursor-not-allowed"
-                            : "border-gray-200 text-slate-900 hover:border-gray-300"
+                          : "border-gray-200 text-slate-900 hover:border-gray-300"
                       }`}>
                         {time}
                       </button>
@@ -143,7 +168,12 @@ export default function TestDrivePage() {
 
                 <div className="flex flex-col md:flex-row gap-6">
                   <div className="flex-1 space-y-4">
-                    <button className="w-full text-left p-6 rounded-2xl border-2 border-[#ea2e33] bg-red-50/30 transition-all text-slate-900">
+                    <button 
+                      onClick={() => setSelectedLocation("niesh_auto")}
+                      type="button"
+                      className={`w-full text-left p-6 rounded-2xl border-2 transition-all text-slate-900 ${
+                        selectedLocation === "niesh_auto" ? "border-[#ea2e33] bg-red-50/30" : "border-gray-200 hover:border-gray-300"
+                      }`}>
                       <h4 className="font-bold mb-1">Niesh Automobile</h4>
                       <p className="text-sm text-gray-500 mb-3">Baneshwor, Kathmandu<br/>Nepal</p>
                       <div className="flex items-center gap-1.5">
@@ -171,32 +201,76 @@ export default function TestDrivePage() {
             {/* Right Column (Form) */}
             <div className="space-y-6">
               
-              {/* Form Box */}
-              <div className="bg-[#101c40] rounded-3xl p-8 shadow-xl">
-                <h3 className="text-white text-xl font-bold mb-6">Contact Information</h3>
-                
-                <form className="space-y-4">
-                  <div>
-                    <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Full Name</label>
-                    <input type="text" placeholder="Johnathan Doe" className="w-full bg-[#1a2b5e] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#ea2e33] transition-colors" />
+              {/* Form or Success Box */}
+              {isSubmitted ? (
+                <div className="bg-[#101c40] rounded-3xl p-8 shadow-xl text-center flex flex-col items-center justify-center py-12">
+                  <div className="w-16 h-16 bg-green-500/20 text-green-400 rounded-full flex items-center justify-center mb-6">
+                    <CheckCircle2 className="w-8 h-8" />
                   </div>
-                  <div>
-                    <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Email Address</label>
-                    <input type="email" placeholder="john@example.com" className="w-full bg-[#1a2b5e] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#ea2e33] transition-colors" />
-                  </div>
-                  <div className="mb-6">
-                    <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Mobile Phone</label>
-                    <input type="tel" placeholder="+977-1234567890" className="w-full bg-[#1a2b5e] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#ea2e33] transition-colors" />
-                  </div>
-
-                  <button type="button" className="w-full bg-white text-[#ea2e33] font-bold text-sm tracking-wider uppercase py-4 rounded-xl hover:bg-gray-100 transition-colors mt-4">
-                    Confirm Booking
-                  </button>
-                  <p className="text-[10px] text-gray-400 text-center mt-4">
-                    By clicking confirm, you agree to our privacy policy and VIP service terms.
+                  <h3 className="text-white text-2xl font-bold mb-2">Booking Confirmed!</h3>
+                  <p className="text-gray-400 text-sm leading-relaxed mb-8">
+                    Thank you, <strong className="text-white">{formData.name}</strong>. Your test drive is scheduled for <strong className="text-white">{days[selectedDay]}, {12 + selectedDay}th at {selectedTime}</strong>. We'll send an email with the details to <strong className="text-white">{formData.email}</strong>.
                   </p>
-                </form>
-              </div>
+                  <button 
+                    onClick={() => {
+                      setIsSubmitted(false);
+                      setFormData({ name: "", email: "", mobile: "" });
+                      setSelectedTime("");
+                    }}
+                    type="button"
+                    className="w-full bg-white/10 hover:bg-white/20 text-white font-bold py-4 rounded-xl transition-colors"
+                  >
+                    Book Another
+                  </button>
+                </div>
+              ) : (
+                <div className="bg-[#101c40] rounded-3xl p-8 shadow-xl">
+                  <h3 className="text-white text-xl font-bold mb-6">Contact Information</h3>
+                  
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div>
+                      <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Full Name</label>
+                      <input 
+                        type="text" 
+                        required
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        placeholder="Johnathan Doe" 
+                        className="w-full bg-[#1a2b5e] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#ea2e33] transition-colors" 
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Email Address</label>
+                      <input 
+                        type="email" 
+                        required
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        placeholder="john@example.com" 
+                        className="w-full bg-[#1a2b5e] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#ea2e33] transition-colors" 
+                      />
+                    </div>
+                    <div className="mb-6">
+                      <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Mobile Phone</label>
+                      <input 
+                        type="tel" 
+                        required
+                        value={formData.mobile}
+                        onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
+                        placeholder="+977-1234567890" 
+                        className="w-full bg-[#1a2b5e] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#ea2e33] transition-colors" 
+                      />
+                    </div>
+
+                    <button type="submit" className="w-full bg-white text-[#ea2e33] font-bold text-sm tracking-wider uppercase py-4 rounded-xl hover:bg-gray-100 transition-colors mt-4">
+                      Confirm Booking
+                    </button>
+                    <p className="text-[10px] text-gray-400 text-center mt-4">
+                      By clicking confirm, you agree to our privacy policy and VIP service terms.
+                    </p>
+                  </form>
+                </div>
+              )}
 
               {/* VIP Box */}
               <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm">
@@ -224,7 +298,7 @@ export default function TestDrivePage() {
               </div>
 
               {/* Home Test Drive Banner */}
-              <div className="bg-[#101c40] rounded-3xl p-6 flex items-center gap-4 text-white">
+              <div className="bg-[#101c40] rounded-3xl p-6 flex items-center gap-4 text-white hover:bg-[#1a2b5e] transition-colors cursor-pointer" onClick={() => alert("Home Test Drive feature coming soon!")}>
                 <HomeIcon className="w-8 h-8 text-[#ea2e33]" />
                 <div>
                   <h4 className="font-bold text-sm mb-0.5">Home Test Drive</h4>
