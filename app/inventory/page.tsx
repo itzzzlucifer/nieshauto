@@ -302,25 +302,25 @@ export default function InventoryPage() {
             </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="bg-white p-8 rounded-3xl border border-gray-100 flex flex-col items-center justify-center text-center shadow-sm">
-              <Navigation className="w-8 h-8 text-[#ea2e33] mb-4" />
-              <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">CLTC Range</span>
-              <span className="text-3xl font-black text-[#101c40]">410 km</span>
+            <div className="bg-white p-5 sm:p-8 rounded-3xl border border-gray-100 flex flex-col items-center justify-center text-center shadow-sm">
+              <Navigation className="w-6 h-6 sm:w-8 sm:h-8 text-[#ea2e33] mb-2 sm:mb-4" />
+              <span className="text-[9px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">CLTC Range</span>
+              <span className="text-xl sm:text-3xl font-black text-[#101c40]">410 km</span>
             </div>
-            <div className="bg-white p-8 rounded-3xl border border-gray-100 flex flex-col items-center justify-center text-center shadow-sm">
-              <Timer className="w-8 h-8 text-[#ea2e33] mb-4" />
-              <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">0-50 KM/H</span>
-              <span className="text-3xl font-black text-[#101c40]">7.0s</span>
+            <div className="bg-white p-5 sm:p-8 rounded-3xl border border-gray-100 flex flex-col items-center justify-center text-center shadow-sm">
+              <Timer className="w-6 h-6 sm:w-8 sm:h-8 text-[#ea2e33] mb-2 sm:mb-4" />
+              <span className="text-[9px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">0-50 KM/H</span>
+              <span className="text-xl sm:text-3xl font-black text-[#101c40]">7.0s</span>
             </div>
-            <div className="bg-white p-8 rounded-3xl border border-gray-100 flex flex-col items-center justify-center text-center shadow-sm">
-              <Gauge className="w-8 h-8 text-[#ea2e33] mb-4" />
-              <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Top Speed</span>
-              <span className="text-3xl font-black text-[#101c40]">121 km/h</span>
+            <div className="bg-white p-5 sm:p-8 rounded-3xl border border-gray-100 flex flex-col items-center justify-center text-center shadow-sm">
+              <Gauge className="w-6 h-6 sm:w-8 sm:h-8 text-[#ea2e33] mb-2 sm:mb-4" />
+              <span className="text-[9px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Top Speed</span>
+              <span className="text-xl sm:text-3xl font-black text-[#101c40]">121 km/h</span>
             </div>
-            <div className="bg-white p-8 rounded-3xl border border-gray-100 flex flex-col items-center justify-center text-center shadow-sm">
-              <Battery className="w-8 h-8 text-[#ea2e33] mb-4" />
-              <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Battery Capacity</span>
-              <span className="text-3xl font-black text-[#101c40]">40.6 kWh</span>
+            <div className="bg-white p-5 sm:p-8 rounded-3xl border border-gray-100 flex flex-col items-center justify-center text-center shadow-sm">
+              <Battery className="w-6 h-6 sm:w-8 sm:h-8 text-[#ea2e33] mb-2 sm:mb-4" />
+              <span className="text-[9px] sm:text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1">Battery Capacity</span>
+              <span className="text-xl sm:text-3xl font-black text-[#101c40]">40.6 kWh</span>
             </div>
             </div>
           </div>
