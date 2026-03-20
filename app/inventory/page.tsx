@@ -327,17 +327,21 @@ export default function InventoryPage() {
         </section>
 
         {/* Feature Highlights Section */}
-        <section className="py-20 bg-slate-50/50 -mx-6 px-6">
+        <section className="py-24">
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-              <div className="space-y-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+              <div className="space-y-10">
                 <div className="space-y-4">
                   <div className="flex items-center gap-2 text-[#ea2e33] font-bold text-xs uppercase tracking-[0.2em]">
                     <Sparkles className="w-4 h-4" />
                     <span>Technology</span>
                   </div>
-                  <h2 className="text-3xl md:text-5xl font-black text-[#101c40] tracking-tight">Smart Cockpit & <span className="text-[#ea2e33]">Safety Suite</span></h2>
-                  <p className="text-gray-500 text-lg font-medium leading-relaxed max-w-xl">Intelligence that looks out for you and keeps you connected on every journey.</p>
+                  <h2 className="text-3xl lg:text-4xl font-black lg:font-light text-[#101c40] lg:text-slate-900 tracking-tight">
+                    Smart Cockpit & <span className="text-[#ea2e33] lg:text-[#ea2e33]">Safety Suite</span>
+                  </h2>
+                  <p className="text-gray-500 lg:text-gray-600 text-lg font-medium lg:font-normal leading-relaxed max-w-xl">
+                    Intelligence that looks out for you and keeps you connected on every journey.
+                  </p>
                 </div>
 
                 <div className="space-y-8">
