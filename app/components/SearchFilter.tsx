@@ -24,7 +24,7 @@ export default function SearchFilter({
   const [isTypeOpen, setIsTypeOpen] = useState(false);
 
   return (
-    <section className="max-w-5xl mx-auto px-6 -mt-10 relative z-10 mb-12">
+    <section className="hidden md:block max-w-5xl mx-auto px-6 -mt-10 relative z-10 mb-12">
       <div className="bg-white rounded-2xl shadow-xl shadow-gray-200/50 border border-gray-100 p-4 flex flex-col md:flex-row gap-4 items-center">
         
         {/* Search Input */}
