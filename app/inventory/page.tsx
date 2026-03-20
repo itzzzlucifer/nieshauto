@@ -8,21 +8,24 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SpecificationAccordion from "../components/SpecificationAccordion";
 
-const GALLERY_IMAGES = [
-  "/Lingbox-Z/lingbox_1.webp",
-  "/car_interior.png",
-  "/Lingbox-Z/lingbox_2.jpeg",
-  "/Lingbox-Z/linbox_4.jpeg",
-  "/Lingbox-Z/lingbox_5.jpeg",
-  "/Lingbox-Z/lingbox_6.jpeg",
-  "/Lingbox-Z/lingbox_7.jpeg",
-  "/Lingbox-Z/lingbox_8.jpeg"
+const ANGLES = ["front_45.png", "front_45_alt.png", "side.png", "rear_45.png", "rear.png", "rear_45_alt.png", "front.png"];
+
+const COLOR_VARIANTS = [
+  { name: "Mint Green", color: "#9CC5A1", folder: "green" },
+  { name: "Space Grey", color: "#8E8E93", folder: "grey" },
+  { name: "Rose Pink", color: "#EAB8C7", folder: "pink" },
+  { name: "Pearl White", color: "#F0EDE8", folder: "white" },
 ];
 
 export default function InventoryPage() {
+  const [activeColor, setActiveColor] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
   const [zoom, setZoom] = useState({ x: 50, y: 50, bgX: 50, bgY: 50 });
   const [isZooming, setIsZooming] = useState(false);
+
+  const currentImages = ANGLES.map(
+    (angle) => `/Lingbox-Z/${COLOR_VARIANTS[activeColor].folder}/${angle}`
+  );
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
@@ -57,6 +60,29 @@ export default function InventoryPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
           {/* Left Column - Gallery */}
           <div className="lg:col-span-2 space-y-4 relative">
+            {/* Color Picker Swatches */}
+            <div className="flex items-center gap-4 mb-2">
+              <span className="text-xs font-bold uppercase tracking-widest text-slate-400">Color</span>
+              <div className="flex items-center gap-3">
+                {COLOR_VARIANTS.map((variant, idx) => (
+                  <button
+                    key={variant.folder}
+                    onClick={() => { setActiveColor(idx); setActiveIndex(0); }}
+                    className={`group relative flex flex-col items-center gap-1`}
+                    title={variant.name}
+                  >
+                    <div className={`w-8 h-8 rounded-full border-2 transition-all shadow-sm ${
+                      activeColor === idx 
+                        ? 'border-[#ea2e33] scale-110 ring-2 ring-[#ea2e33]/30' 
+                        : 'border-gray-200 hover:border-gray-400 hover:scale-105'
+                    }`} style={{ backgroundColor: variant.color }} />
+                    <span className={`text-[10px] font-bold transition-colors ${
+                      activeColor === idx ? 'text-[#ea2e33]' : 'text-slate-400'
+                    }`}>{variant.name.split(' ')[0]}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
             {/* Main Featured Image */}
             <div 
               className="relative h-[400px] sm:h-[500px] w-full rounded-3xl overflow-hidden bg-slate-900 shadow-lg cursor-crosshair"
@@ -65,7 +91,7 @@ export default function InventoryPage() {
               onMouseMove={handleMouseMove}
             >
               <Image
-                src={GALLERY_IMAGES[activeIndex]}
+                src={currentImages[activeIndex]}
                 alt="JINPENG LINGBOX-Z 410km"
                 fill
                 className="object-cover"
@@ -97,7 +123,7 @@ export default function InventoryPage() {
               <div className="hidden lg:block absolute top-0 left-full ml-8 w-[calc(50%-1rem)] h-[500px] bg-white rounded-3xl shadow-2xl z-50 pointer-events-none border border-gray-100 overflow-hidden">
                  <div className="relative w-full h-full">
                     <Image 
-                      src={GALLERY_IMAGES[activeIndex]}
+                      src={currentImages[activeIndex]}
                       alt="Zoomed Detail"
                       fill
                       className="object-cover"
@@ -112,7 +138,7 @@ export default function InventoryPage() {
 
             {/* Thumbnail Gallery */}
             <div className="grid grid-cols-4 gap-4">
-              {GALLERY_IMAGES.map((img, idx) => (
+              {currentImages.map((img: string, idx: number) => (
                 <div
                   key={idx}
                   className={`relative h-24 sm:h-32 rounded-xl overflow-hidden cursor-pointer border-2 transition-all ${activeIndex === idx ? 'border-[#ea2e33]' : 'border-transparent'
