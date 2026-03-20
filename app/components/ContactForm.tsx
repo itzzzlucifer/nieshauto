@@ -1,11 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import { CheckCircle2 } from "lucide-react";
+import { sendContactEmail } from "../actions/emailActions";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isPending, startTransition] = useTransition();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -13,8 +15,15 @@ export default function ContactForm() {
       alert("Please fill out all required fields.");
       return;
     }
-    // Simulate API call
-    setIsSubmitted(true);
+    
+    startTransition(async () => {
+      const result = await sendContactEmail(formData);
+      if (result.success) {
+        setIsSubmitted(true);
+      } else {
+        alert("Failed to send message: " + result.error);
+      }
+    });
   };
 
   if (isSubmitted) {
@@ -50,7 +59,9 @@ export default function ContactForm() {
             <div className="space-y-2">
               <label className="text-sm font-semibold text-slate-700">Full Name</label>
               <input 
-                type="text" 
+                type="text"
+                name="name"
+                autoComplete="name"
                 required
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -62,7 +73,9 @@ export default function ContactForm() {
             <div className="space-y-2">
               <label className="text-sm font-semibold text-slate-700">Email Address</label>
               <input 
-                type="email" 
+                type="email"
+                name="email"
+                autoComplete="email"
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -76,7 +89,9 @@ export default function ContactForm() {
           <div className="space-y-2">
             <label className="text-sm font-semibold text-slate-700">Subject</label>
             <input 
-              type="text" 
+              type="text"
+              name="subject"
+              autoComplete="off" 
               value={formData.subject}
               onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
               className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#ea2e33]/20 focus:border-[#ea2e33] transition-all" 
@@ -98,8 +113,8 @@ export default function ContactForm() {
             ></textarea>
           </div>
 
-          <button type="submit" className="w-full bg-[#ea2e33] hover:bg-[#d8272c] text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-[#ea2e33]/30">
-            Send Message
+          <button disabled={isPending} type="submit" className="w-full bg-[#ea2e33] hover:bg-[#d8272c] text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-[#ea2e33]/30 disabled:opacity-50">
+            {isPending ? "Sending..." : "Send Message"}
           </button>
         </form>
       </div>

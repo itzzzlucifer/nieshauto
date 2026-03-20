@@ -1,29 +1,70 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useTransition, useEffect } from "react";
 import Image from "next/image";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { CheckCircle2, Calendar, MapPin, Star, Home as HomeIcon } from "lucide-react";
+import { sendTestDriveEmail } from "../actions/emailActions";
+
+type DayData = {
+  shortName: string;
+  fullName: string;
+  dateNum: number;
+  fullDateString: string;
+};
 
 export default function TestDrivePage() {
-  const [selectedDay, setSelectedDay] = useState(2);
+  const [selectedDay, setSelectedDay] = useState(0);
   const [selectedTime, setSelectedTime] = useState("");
   const [selectedLocation, setSelectedLocation] = useState("niesh_auto");
   const [formData, setFormData] = useState({ name: "", email: "", mobile: "" });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isPending, startTransition] = useTransition();
+  const [nextDates, setNextDates] = useState<DayData[]>([]);
 
-  const days = ["MO", "TU", "WE", "TH", "FR", "SA", "SU"];
   const times = ["09:00 AM", "10:30 AM", "12:00 PM", "02:30 PM", "04:00 PM", "05:30 PM"];
+
+  useEffect(() => {
+    const dates: DayData[] = [];
+    const today = new Date();
+    const dayNames = ["SU", "MO", "TU", "WE", "TH", "FR", "SA"];
+    const fullDayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    for (let i = 0; i < 7; i++) {
+        const d = new Date(today);
+        d.setDate(today.getDate() + i);
+        dates.push({
+            shortName: dayNames[d.getDay()],
+            fullName: fullDayNames[d.getDay()],
+            dateNum: d.getDate(),
+            fullDateString: `${fullDayNames[d.getDay()]}, ${d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}`
+        });
+    }
+    setNextDates(dates);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!selectedTime) {
-      alert("Please select a time for your test drive.");
+    if (!selectedTime || nextDates.length === 0) {
+      alert("Please select a date and time for your test drive.");
       return;
     }
-    // Implement API call here in the future
-    setIsSubmitted(true);
+    
+    startTransition(async () => {
+      const selectedDateString = nextDates[selectedDay].fullDateString;
+      
+      const result = await sendTestDriveEmail({
+        ...formData,
+        selectedDate: selectedDateString,
+        selectedTime,
+        selectedLocation
+      });
+      if (result.success) {
+        setIsSubmitted(true);
+      } else {
+        alert("Failed to confirm booking: " + result.error);
+      }
+    });
   };
 
   return (
@@ -118,24 +159,36 @@ export default function TestDrivePage() {
                   <h2 className="text-2xl font-bold text-slate-900">Choose Date & Time</h2>
                 </div>
 
-                <div className="mb-8">
+                <div className="mb-8 min-h-[80px]">
                   <span className="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Select Day</span>
                   <div className="flex justify-between">
-                    {days.map((day, i) => (
-                      <div key={i} className="flex flex-col items-center gap-2">
-                        <span className="text-xs font-bold text-gray-400">{day}</span>
-                        <button 
-                          onClick={() => setSelectedDay(i)}
-                          type="button"
-                          className={`w-10 h-10 rounded-xl font-bold text-sm flex items-center justify-center transition-all ${
-                          selectedDay === i 
-                            ? "bg-[#ea2e33] text-white shadow-md shadow-[#ea2e33]/20" 
-                            : "text-slate-900 hover:bg-gray-50"
-                        }`}>
-                          {12 + i}
-                        </button>
+                    {nextDates.length === 0 ? (
+                      <div className="flex justify-between w-full opacity-50">
+                        {/* Loading Skeleton */}
+                        {[1,2,3,4,5,6,7].map(i => (
+                          <div key={i} className="flex flex-col items-center gap-2">
+                             <div className="h-3 w-6 bg-gray-200 rounded animate-pulse" />
+                             <div className="w-10 h-10 rounded-xl bg-gray-200 animate-pulse" />
+                          </div>
+                        ))}
                       </div>
-                    ))}
+                    ) : (
+                      nextDates.map((dayObj, i) => (
+                        <div key={i} className="flex flex-col items-center gap-2">
+                          <span className="text-[10px] font-bold text-gray-500">{dayObj.shortName}</span>
+                          <button 
+                            onClick={() => setSelectedDay(i)}
+                            type="button"
+                            className={`w-10 h-10 rounded-xl font-bold text-sm flex items-center justify-center transition-all ${
+                            selectedDay === i 
+                              ? "bg-[#ea2e33] text-white shadow-md shadow-[#ea2e33]/20" 
+                              : "text-slate-900 border border-transparent hover:border-gray-200 hover:bg-gray-50"
+                          }`}>
+                            {dayObj.dateNum}
+                          </button>
+                        </div>
+                      ))
+                    )}
                   </div>
                 </div>
 
@@ -209,7 +262,7 @@ export default function TestDrivePage() {
                   </div>
                   <h3 className="text-white text-2xl font-bold mb-2">Booking Confirmed!</h3>
                   <p className="text-gray-400 text-sm leading-relaxed mb-8">
-                    Thank you, <strong className="text-white">{formData.name}</strong>. Your test drive is scheduled for <strong className="text-white">{days[selectedDay]}, {12 + selectedDay}th at {selectedTime}</strong>. We'll send an email with the details to <strong className="text-white">{formData.email}</strong>.
+                    Thank you, <strong className="text-white">{formData.name}</strong>. Your test drive is scheduled for <strong className="text-white">{nextDates[selectedDay]?.fullDateString} at {selectedTime}</strong>.
                   </p>
                   <button 
                     onClick={() => {
@@ -231,7 +284,9 @@ export default function TestDrivePage() {
                     <div>
                       <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Full Name</label>
                       <input 
-                        type="text" 
+                        type="text"
+                        name="name"
+                        autoComplete="name"
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -242,7 +297,9 @@ export default function TestDrivePage() {
                     <div>
                       <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Email Address</label>
                       <input 
-                        type="email" 
+                        type="email"
+                        name="email"
+                        autoComplete="email"
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -253,7 +310,9 @@ export default function TestDrivePage() {
                     <div className="mb-6">
                       <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">Mobile Phone</label>
                       <input 
-                        type="tel" 
+                        type="tel"
+                        name="tel"
+                        autoComplete="tel"
                         required
                         value={formData.mobile}
                         onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
@@ -262,8 +321,8 @@ export default function TestDrivePage() {
                       />
                     </div>
 
-                    <button type="submit" className="w-full bg-white text-[#ea2e33] font-bold text-sm tracking-wider uppercase py-4 rounded-xl hover:bg-gray-100 transition-colors mt-4">
-                      Confirm Booking
+                    <button disabled={isPending} type="submit" className="w-full bg-white text-[#ea2e33] font-bold text-sm tracking-wider uppercase py-4 rounded-xl hover:bg-gray-100 transition-colors mt-4 disabled:opacity-50">
+                      {isPending ? "Confirming..." : "Confirm Booking"}
                     </button>
                     <p className="text-[10px] text-gray-400 text-center mt-4">
                       By clicking confirm, you agree to our privacy policy and VIP service terms.
