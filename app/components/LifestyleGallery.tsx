@@ -11,15 +11,15 @@ const LIFESTYLE_IMAGES = [
   { src: "/Lingbox-Z/lingbox_4.webp", alt: "Lingbox Z Urban", span: "md:col-span-1 md:row-span-2" },
   { src: "/Lingbox-Z/lingbox_5.webp", alt: "Lingbox Z Branding", span: "md:col-span-2 md:row-span-1" },
   { src: "/Lingbox-Z/lingbox_8.webp", alt: "Lingbox Z Modern", span: "md:col-span-1 md:row-span-1" },
-  { src: "/Lingbox-Z/lifestyle/image1.jpeg", alt: "Lingbox Z Owner", span: "md:col-span-1 md:row-span-1" },
+  { src: "/Lingbox-Z/lifestyle/image1.webp", alt: "Lingbox Z Owner", span: "md:col-span-1 md:row-span-1" },
 
   // Block 2 (New Additions)
-  { src: "/Lingbox-Z/lifestyle/image2.jpeg", alt: "Lingbox Z Showcase", span: "md:col-span-1 md:row-span-1" },
-  { src: "/Lingbox-Z/lifestyle/image3.jpeg", alt: "Lingbox Z Highlight", span: "md:col-span-2 md:row-span-2" },
-  { src: "/Lingbox-Z/lifestyle/image4.jpeg", alt: "Lingbox Z Walkaround", span: "md:col-span-1 md:row-span-1" },
-  { src: "/Lingbox-Z/lifestyle/image5.jpeg", alt: "Lingbox Z Delivery", span: "md:col-span-2 md:row-span-1" },
-  { src: "/Lingbox-Z/lifestyle/image6.jpeg", alt: "Lingbox Z Experience", span: "md:col-span-1 md:row-span-2" },
-  { src: "/Lingbox-Z/lifestyle/image7.jpeg", alt: "Lingbox Z Customer", span: "md:col-span-2 md:row-span-1" },
+  { src: "/Lingbox-Z/lifestyle/image2.webp", alt: "Lingbox Z Showcase", span: "md:col-span-1 md:row-span-1" },
+  { src: "/Lingbox-Z/lifestyle/image3.webp", alt: "Lingbox Z Highlight", span: "md:col-span-2 md:row-span-2" },
+  { src: "/Lingbox-Z/lifestyle/image4.webp", alt: "Lingbox Z Walkaround", span: "md:col-span-1 md:row-span-1" },
+  { src: "/Lingbox-Z/lifestyle/image5.webp", alt: "Lingbox Z Delivery", span: "md:col-span-2 md:row-span-1" },
+  { src: "/Lingbox-Z/lifestyle/image6.webp", alt: "Lingbox Z Experience", span: "md:col-span-1 md:row-span-2" },
+  { src: "/Lingbox-Z/lifestyle/image7.webp", alt: "Lingbox Z Customer", span: "md:col-span-2 md:row-span-1" },
 ];
 
 export default function LifestyleGallery() {
