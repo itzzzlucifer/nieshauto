@@ -93,7 +93,7 @@ export default function InventoryPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col pt-[88px] bg-[#f8f9fa]">
+    <div className="min-h-screen flex flex-col pt-[125px] bg-[#f8f9fa]">
       {/* Hidden preload: eagerly fetch every color+angle combo so color switching is instant */}
       <div aria-hidden="true" className="hidden">
         {ALL_IMAGES.map((src) => (
@@ -227,7 +227,7 @@ export default function InventoryPage() {
 
           {/* Right Column - Pricing Card */}
           <div className="lg:col-span-1">
-            <div className="sticky top-[120px] bg-white rounded-3xl p-8 border border-gray-100 shadow-xl shadow-gray-200/50">
+            <div className="sticky top-[150px] bg-white rounded-3xl p-8 border border-gray-100 shadow-xl shadow-gray-200/50">
 
               <div className="flex justify-between items-start mb-6">
                 <div>
@@ -282,7 +282,7 @@ export default function InventoryPage() {
         </div>
 
         {/* Technical Specifications Section */}
-        <section id="specifications" className="py-24 border-t border-gray-100">
+        <section id="specifications" className="py-24 border-t border-gray-100 scroll-mt-32">
           <div className="max-w-7xl mx-auto px-1 sm:px-0">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
               <div className="space-y-3">

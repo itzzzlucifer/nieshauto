@@ -9,7 +9,7 @@ import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <div className="flex flex-col pt-[88px] relative bg-[#fcfcfc]">
+    <div className="flex flex-col pt-[125px] relative bg-[#fcfcfc]">
       <Navbar />
       
       <main className="flex-grow">

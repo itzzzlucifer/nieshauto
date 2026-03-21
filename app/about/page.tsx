@@ -39,10 +39,10 @@ export default function AboutPage() {
                 </div>
               </div>
               <div className="relative h-[400px] lg:h-[500px] w-full rounded-3xl overflow-hidden shadow-2xl">
-                <Image 
-                  src="/Lingbox-Z/lingbox_2.webp" 
-                  alt="Jinpeng Lingbox Showcase" 
-                  fill 
+                <Image
+                  src="/Lingbox-Z/lingbox_2.webp"
+                  alt="Jinpeng Lingbox Showcase"
+                  fill
                   className="object-cover"
                 />
               </div>
@@ -51,7 +51,7 @@ export default function AboutPage() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-20 lg:py-28 relative scroll-mt-20">
+        <section id="contact" className="py-20 lg:py-28 relative scroll-mt-32">
           <div className="max-w-7xl mx-auto px-6 relative z-10">
             <div className="text-center max-w-2xl mx-auto mb-16">
               <h2 className="text-4xl font-black text-slate-900 mb-6">Get In Touch</h2>
@@ -69,7 +69,10 @@ export default function AboutPage() {
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 mb-1">Phone</h4>
-                    <p className="text-slate-600">014522211</p>
+                    <p className="text-slate-600 flex flex-col">
+                      <a href="tel:014522211" className="hover:text-[#ea2e33] transition-colors">01-4522211</a>
+                      <a href="tel:+9779769744045" className="hover:text-[#ea2e33] transition-colors">+977 976-9744045</a>
+                    </p>
                   </div>
                 </div>
 
@@ -89,18 +92,18 @@ export default function AboutPage() {
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 mb-1">Location</h4>
-                    <p className="text-slate-600 text-sm mb-2">Baneshwor, Kathmandu<br/>Nepal</p>
+                    <p className="text-slate-600 text-sm mb-2">Baneshwor, Kathmandu<br />Nepal</p>
                     <span className="text-xs font-bold text-[#ea2e33] uppercase tracking-widest group-hover:underline">View on Map &rarr;</span>
                   </div>
                 </a>
-                
+
                 <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex items-start gap-4 hover:shadow-md transition-shadow">
                   <div className="bg-orange-50 p-3 rounded-full text-[#ea2e33]">
                     <Clock size={24} />
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 mb-1">Business Hours</h4>
-                    <p className="text-slate-600 text-sm">Sunday - Friday<br/>9:00 AM - 6:00 PM</p>
+                    <p className="text-slate-600 text-sm">Sunday - Friday<br />9:00 AM - 6:00 PM</p>
                   </div>
                 </div>
               </div>

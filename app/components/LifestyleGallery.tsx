@@ -4,12 +4,22 @@ import Image from "next/image";
 import { Sparkles } from "lucide-react";
 
 const LIFESTYLE_IMAGES = [
+  // Block 1 (Original)
   { src: "/Lingbox-Z/lingbox_1.webp", alt: "Lingbox Z City Drive", span: "md:col-span-2 md:row-span-2" },
   { src: "/Lingbox-Z/lingbox_2.webp", alt: "Lingbox Z Detail", span: "md:col-span-1 md:row-span-1" },
   { src: "/Lingbox-Z/lingbox_3.webp", alt: "Lingbox Z Lifestyle", span: "md:col-span-1 md:row-span-1" },
-  { src: "/Lingbox-Z/lingbox_4.webp", alt: "Lingbox Z Urban", span: "md:col-span-1 md:row-span-1" },
+  { src: "/Lingbox-Z/lingbox_4.webp", alt: "Lingbox Z Urban", span: "md:col-span-1 md:row-span-2" },
   { src: "/Lingbox-Z/lingbox_5.webp", alt: "Lingbox Z Branding", span: "md:col-span-2 md:row-span-1" },
   { src: "/Lingbox-Z/lingbox_8.webp", alt: "Lingbox Z Modern", span: "md:col-span-1 md:row-span-1" },
+  { src: "/Lingbox-Z/lifestyle/image1.jpeg", alt: "Lingbox Z Owner", span: "md:col-span-1 md:row-span-1" },
+
+  // Block 2 (New Additions)
+  { src: "/Lingbox-Z/lifestyle/image2.jpeg", alt: "Lingbox Z Showcase", span: "md:col-span-1 md:row-span-1" },
+  { src: "/Lingbox-Z/lifestyle/image3.jpeg", alt: "Lingbox Z Highlight", span: "md:col-span-2 md:row-span-2" },
+  { src: "/Lingbox-Z/lifestyle/image4.jpeg", alt: "Lingbox Z Walkaround", span: "md:col-span-1 md:row-span-1" },
+  { src: "/Lingbox-Z/lifestyle/image5.jpeg", alt: "Lingbox Z Delivery", span: "md:col-span-2 md:row-span-1" },
+  { src: "/Lingbox-Z/lifestyle/image6.jpeg", alt: "Lingbox Z Experience", span: "md:col-span-1 md:row-span-2" },
+  { src: "/Lingbox-Z/lifestyle/image7.jpeg", alt: "Lingbox Z Customer", span: "md:col-span-2 md:row-span-1" },
 ];
 
 export default function LifestyleGallery() {
@@ -44,11 +54,6 @@ export default function LifestyleGallery() {
                 className="object-cover transition-transform duration-1000 group-hover:scale-110"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
-                <p className="text-white font-bold text-lg tracking-wide transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                  {img.alt}
-                </p>
-              </div>
             </div>
           ))}
         </div>

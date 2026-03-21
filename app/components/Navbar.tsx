@@ -10,6 +10,27 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-white border-b border-gray-100 flex flex-col">
+      {/* Top Bar */}
+      <div className="w-full bg-[#101c40] text-white py-2 px-6">
+        <div className="max-w-7xl mx-auto flex justify-between items-center text-[10px] sm:text-xs font-bold tracking-widest uppercase">
+          <div className="flex items-center gap-4 sm:gap-6">
+            <div className="flex items-center gap-2">
+              <span className="text-[#ea2e33]">CALL US:</span>
+              <a href="tel:014522211" className="hover:text-[#ea2e33] transition-colors">01-4522211</a>
+            </div>
+            <div className="flex items-center gap-2">
+              <a href="tel:+9779769744045" className="hover:text-[#ea2e33] transition-colors">+977 976-9744045</a>
+            </div>
+          </div>
+          <div className="hidden sm:flex items-center gap-4">
+            <span className="text-gray-400">FOLLOW US:</span>
+            <div className="flex gap-3">
+              <a href="#" className="hover:text-[#ea2e33] transition-colors">FB</a>
+              <a href="#" className="hover:text-[#ea2e33] transition-colors">IG</a>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="w-full px-6 py-4 flex items-center justify-between bg-white z-50">
       {/* Logo */}
       <Link href="/" className="flex items-center gap-2 group">
@@ -73,6 +94,14 @@ export default function Navbar() {
           <Link href="/test-drive" onClick={() => setIsMobileMenuOpen(false)} className="sm:hidden text-center bg-[#ea2e33] hover:bg-[#d6282d] text-white px-6 py-3 mt-2 rounded-lg font-bold transition-all shadow-md">
             Book Test Drive
           </Link>
+          <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-gray-100 italic">
+            <a href="tel:014522211" className="flex items-center gap-2 text-[#101c40]">
+              <span className="text-[#ea2e33]">CALL:</span> 01-4522211
+            </a>
+            <a href="tel:+9779769744045" className="flex items-center gap-2 text-[#101c40]">
+              <span className="text-[#ea2e33]">CALL:</span> +977 976-9744045
+            </a>
+          </div>
         </div>
       </div>
     </nav>

@@ -68,7 +68,7 @@ export default function TestDrivePage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col pt-[88px] bg-[#f8f9fa]">
+    <div className="min-h-screen flex flex-col pt-[125px] bg-[#f8f9fa]">
       <Navbar />
 
       <main className="flex-grow">
