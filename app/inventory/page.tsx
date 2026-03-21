@@ -293,10 +293,6 @@ export default function InventoryPage() {
                 <h2 className="text-3xl md:text-5xl font-black text-[#101c40] tracking-tight">Technical <span className="text-[#ea2e33]">Specifications</span></h2>
                 <p className="text-gray-500 max-w-xl text-lg font-medium leading-relaxed">Precision engineering meets electric power in every detail.</p>
               </div>
-              <div className="flex items-center bg-white border border-gray-100 p-1 rounded-xl shadow-sm text-sm font-bold w-fit">
-                <button className="px-6 py-2 bg-slate-900 text-white rounded-lg shadow-sm">Metric</button>
-                <button className="px-6 py-2 text-slate-500 hover:text-slate-900">Imperial</button>
-              </div>
             </div>
 
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
