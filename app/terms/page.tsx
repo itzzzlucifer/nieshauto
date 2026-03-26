@@ -75,7 +75,7 @@ export default function TermsOfService() {
 
           <div className="bg-slate-50 p-6 rounded-2xl border border-gray-100 mt-8">
             <p className="text-sm font-medium text-gray-500">
-              For any questions regarding these terms, please reach out to us at <span className="text-[#ea2e33] font-bold">legal@nieshauto.com</span>.
+              For any questions regarding these terms, please reach out to us at <span className="text-[#ea2e33] font-bold">legal@nieshautomobile.com</span>.
             </p>
           </div>
         </div>

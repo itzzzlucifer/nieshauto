@@ -71,7 +71,7 @@ export default function PrivacyPolicy() {
             </p>
             <div className="bg-slate-50 p-6 rounded-2xl border border-gray-100 mt-4">
               <p className="font-bold text-[#101c40]">Niesh Automobile Pvt. Ltd.</p>
-              <p className="text-gray-600">Email: info@nieshauto.com</p>
+              <p className="text-gray-600">Email: info@nieshautomobile.com</p>
               <p className="text-gray-600">Nepal</p>
             </div>
           </section>

@@ -7,7 +7,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://nieshauto.com"),
+  metadataBase: new URL("https://nieshautomobile.com"),
   title: {
     default: "Niesh Automobile | Premium Electric Vehicles in Nepal",
     template: "%s | Niesh Automobile",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Niesh Automobile | Premium Electric Vehicles in Nepal",
     description: "Exclusive authorized partner for Jinpeng in Nepal. Discover the JINPENG LINGBOX-Z.",
-    url: "https://nieshauto.com",
+    url: "https://nieshautomobile.com",
     siteName: "Niesh Automobile",
     images: [
       {
@@ -66,9 +66,9 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "AutomotiveBusiness",
     "name": "Niesh Automobile Pvt. Ltd.",
-    "image": "https://nieshauto.com/logo.jpeg",
-    "@id": "https://nieshauto.com",
-    "url": "https://nieshauto.com",
+    "image": "https://nieshautomobile.com/logo.jpeg",
+    "@id": "https://nieshautomobile.com",
+    "url": "https://nieshautomobile.com",
     "telephone": "01-4522211",
     "address": {
       "@type": "PostalAddress",

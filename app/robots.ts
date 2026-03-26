@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://nieshauto.com/sitemap.xml',
+    sitemap: 'https://nieshautomobile.com/sitemap.xml',
   }
 }
