@@ -5,8 +5,8 @@ import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import ContactForm from "../components/ContactForm";
 
 export const metadata = {
-  title: "About Us | Niesh Automobile",
-  description: "Learn more about Niesh Automobile Pvt. Ltd., the exclusive authorized partner for Jinpeng in Nepal.",
+  title: "About Us",
+  description: "Learn more about Niesh Automobile Pvt. Ltd., the exclusive authorized partner for Jinpeng in Nepal. Pioneering premium urban mobility with eco-friendly electric vehicles.",
 };
 
 export default function AboutPage() {
