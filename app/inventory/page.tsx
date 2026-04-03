@@ -11,7 +11,7 @@ import LifestyleGallery from "../components/LifestyleGallery";
 
 const COLOR_VARIANTS = [
   {
-    name: "Mint Green",
+    name: "Mint green",
     color: "#9CC5A1",
     images: [
       "/Lingbox-Z/green/front_45.webp",
@@ -24,7 +24,7 @@ const COLOR_VARIANTS = [
     ]
   },
   {
-    name: "Space Grey",
+    name: "Steel gray",
     color: "#8E8E93",
     images: [
       "/Lingbox-Z/grey/front_45.webp",
@@ -37,7 +37,7 @@ const COLOR_VARIANTS = [
     ]
   },
   {
-    name: "Rose Pink",
+    name: "Velvet lilac",
     color: "#EAB8C7",
     images: [
       "/Lingbox-Z/pink/front_45.webp",
@@ -50,7 +50,7 @@ const COLOR_VARIANTS = [
     ]
   },
   {
-    name: "Pearl White",
+    name: "Glacier white",
     color: "#F0EDE8",
     images: [
       "/Lingbox-Z/white/front_45.webp",
